@@ -44,14 +44,6 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   initForm() {
     this.registrationForm = this.fb.group(
       {
-        fullname: [
-          '',
-          Validators.compose([
-            Validators.required,
-            Validators.minLength(3),
-            Validators.maxLength(100),
-          ]),
-        ],
         email: [
           'qwe@qwe.qwe',
           Validators.compose([
@@ -107,7 +99,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       .pipe(first())
       .subscribe((user: UserModel) => {
         if (user) {
-          this.router.navigate(['/']);
+          this.router.navigate(['/auth/phone-confirmation']);
         } else {
           this.hasError = true;
         }

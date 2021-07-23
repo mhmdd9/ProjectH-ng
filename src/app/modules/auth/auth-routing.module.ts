@@ -5,6 +5,7 @@ import {LoginComponent} from './login/login.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {LogoutComponent} from './logout/logout.component';
+import {PhoneConfirmationComponent} from "./phone-confirmation/phone-confirmation.component";
 
 
 const routes: Routes = [
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'forgot-password',
         component: ForgotPasswordComponent
+      },
+      {
+        path: 'phone-confirmation',
+        component: PhoneConfirmationComponent
       },
       {
         path: 'logout',

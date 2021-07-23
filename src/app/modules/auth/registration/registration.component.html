@@ -31,47 +31,6 @@
 
     <!--begin::Form group-->
     <div class="form-group">
-      <label class="font-size-h6 font-weight-bolder text-dark">نام کامل</label>
-      <input
-        class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"
-        type="text"
-        name="fullname"
-        formControlName="fullname"
-        placeholder="نام کامل"
-        autocomplete="off"
-        [ngClass]="{
-          'is-invalid': registrationForm.controls['fullname'].invalid
-        }"
-      />
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
-          validation: 'required',
-          message: 'وارد کردن نام اجباری است',
-          control: registrationForm.controls['fullname']
-        }"
-      ></ng-container>
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
-          validation: 'minlength',
-          message: 'نام باید حداقل دارای 3 کاراکتر باشد',
-          control: registrationForm.controls['fullname']
-        }"
-      ></ng-container>
-      <ng-container
-        [ngTemplateOutlet]="formError"
-        [ngTemplateOutletContext]="{
-          validation: 'maxLength',
-          message: 'نام حداکثر می‌تواند 100 کاراکتر باشد',
-          control: registrationForm.controls['fullname']
-        }"
-      ></ng-container>
-    </div>
-    <!--end::Form group-->
-
-    <!--begin::Form group-->
-    <div class="form-group">
       <label class="font-size-h6 font-weight-bolder text-dark">ایمیل</label>
       <input
         class="form-control form-control-solid h-auto py-7 px-6 rounded-lg font-size-h6"

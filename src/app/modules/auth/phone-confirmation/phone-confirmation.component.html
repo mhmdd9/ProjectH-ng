@@ -1,0 +1,83 @@
+<!--begin::PhoneConfirmation-->
+<div class="login-form">
+    <!--begin::Form-->
+    <form
+            class="form"
+            [formGroup]="loginForm"
+            novalidate="novalidate"
+            id="kt_login_signin_form"
+            (ngSubmit)="submit()"
+    >
+
+        <!-- begin::Alert error-->
+        <ng-container *ngIf="hasError">
+            <div class="mb-10 alert alert-custom alert-light-danger alert-dismissible"
+            >
+                <div class="alert-text">مشخصات ورودی اشتباه است</div>
+            </div>
+        </ng-container>
+        <!-- end::Alert error-->
+
+        <!--begin::Form group-->
+        <div class="form-group">
+            <div class="d-flex justify-content-between mt-n5">
+                <label class="font-size-h6 font-weight-bolder text-dark pt-5"
+                >کد ارسالی به شماره همراه‌تان را وارد نمائید</label
+                >
+            </div>
+
+            <input
+                    class="form-control form-control-solid h-auto py-7 px-6 rounded-lg"
+                    type="password" maxlength="5"
+                    name="password"
+                    autocomplete="off"
+                    formControlName="password"
+                    [ngClass]="{ 'is-invalid': loginForm.controls['password'].invalid }"
+            />
+            <ng-container
+                    [ngTemplateOutlet]="formError"
+                    [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: 'کد را وارد نمائید',
+          control: loginForm.controls['password']
+        }"
+            ></ng-container>
+        </div>
+        <!--end::Form group-->
+
+        <!--begin::Action-->
+        <div class="pb-lg-0 pb-5">
+            <button
+                    type="submit"
+                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3"
+                    [disabled]="loginForm.invalid"
+            >
+                تایید کد
+            </button>
+
+            <ng-container *ngIf="isLoading$ | async">
+                <span class="spinner spinner-primary ml-5"></span>
+            </ng-container>
+        </div>
+        <!--end::Action-->
+    </form>
+    <!--end::Form-->
+</div>
+<!--end::PhoneConfirmation-->
+
+<ng-template
+    #formError
+    let-control="control"
+    let-message="message"
+    let-validation="validation"
+>
+    <ng-container
+            *ngIf="control.hasError(validation) && (control.dirty || control.touched)"
+    >
+        <div class="fv-plugins-message-container">
+            <div class="fv-help-block">
+                {{ message }}
+            </div>
+        </div>
+    </ng-container>
+</ng-template>
