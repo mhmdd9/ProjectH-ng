@@ -1,0 +1,157 @@
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">لیست تراکنش های شما</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- begin: Filtration form -->
+    <div class="form form-label-right">
+      <div class="form-group row">
+        <div class="col-lg-4">
+          <div class="row" [formGroup]="filterGroup">
+            <div class="col-lg-6">
+              <select
+                class="form-control"
+                name="status"
+                placeholder="Filter by Status"
+                formControlName="status"
+              >
+                <option value="">همه</option>
+                <option value="1">موفق</option>
+                <option value="2">ناموفق</option></select
+              ><small class="form-text text-muted"
+                ><b>فیلتر</b> بر اساس وضعیت</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2" [formGroup]="searchGroup">
+          <input
+            type="text"
+            class="form-control"
+            name="searchText"
+            placeholder="جستجو"
+            value=""
+            formControlName="searchTerm"
+          /><small class="form-text text-muted"
+            ><b>جستجو</b> بین همه موارد</small
+          >
+        </div>
+      </div>
+    </div>
+    <!-- end: Filtration form -->
+
+    <!-- begin: Grouping -->
+    <ng-container *ngIf="grouping.getSelectedRowsCount()">
+      <div class="form">
+        <div
+          class="row align-items-center form-group-actions margin-top-20 margin-bottom-20"
+        >
+          <div class="col-xl-12">
+            <div class="form-group form-group-inline">
+              <div class="form-label form-label-no-wrap">
+                <label class="font-bold font-danger"
+                  ><span
+                    >جمع موارد انتخابی:
+                    <b>{{ grouping.getSelectedRowsCount() }}</b></span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <!-- end: Grouping -->
+    <!-- begin:Table -->
+    <div class="table-responsive angular-bootstrap-table">
+      <table
+        class="table table-head-custom table-vertical-center overflow-hidden"
+      >
+        <thead>
+          <th class="selection-cell-header" data-row-selection="true">
+            <label class="checkbox checkbox-single"
+              ><input
+                type="checkbox"
+                (click)="grouping.selectAllRows()"
+                [checked]="grouping.checkAreAllRowsSelected()" /><span></span
+            ></label>
+          </th>
+          <th>
+            شناسه مرجع
+            <app-sort-icon
+              column="VINCode"
+              [activeColumn]="sorting.column"
+              [activeDirection]="sorting.direction"
+              (sort)="sort($event)"
+            ></app-sort-icon>
+          </th>
+          <th>
+            تاریخ
+            <app-sort-icon
+              column="modelYear"
+              [activeColumn]="sorting.column"
+              [activeDirection]="sorting.direction"
+              (sort)="sort($event)"
+            ></app-sort-icon>
+          </th>
+          <th>
+            مبلغ
+            <app-sort-icon
+              column="price"
+              [activeColumn]="sorting.column"
+              [activeDirection]="sorting.direction"
+              (sort)="sort($event)"
+            ></app-sort-icon>
+          </th>
+          <th>
+            وضعیت
+            <app-sort-icon
+              column="status"
+              [activeColumn]="sorting.column"
+              [activeDirection]="sorting.direction"
+              (sort)="sort($event)"
+            ></app-sort-icon>
+          </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of productsService.items$ | async">
+            <td class="selection-cell">
+              <label class="checkbox checkbox-single"
+                ><input
+                  type="checkbox"
+                  (click)="grouping.selectRow(product.id)"
+                  [checked]="grouping.isRowSelected(product.id)"
+                />
+                <span></span>
+              </label>
+            </td>
+            <td>{{ product.VINCode }}</td>
+            <td>{{ product.modelYear }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+              <span
+                class="label label-lg label-inline"
+                [class.label-light-success]="product.status === 1"
+                [class.label-light-danger]="product.status === 2"
+              >
+                <ng-container *ngIf="product.status === 1"
+                  >موفق</ng-container
+                >
+                <ng-container *ngIf="product.status === 2">نا موفق</ng-container>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end: Table -->
+    <app-paginator
+      class="d-flex justify-content-between align-items-center flex-wrap"
+      [paginator]="paginator"
+      [isLoading]="isLoading"
+      (paginate)="paginate($event)"
+    ></app-paginator>
+  </div>
+</div>

@@ -1,0 +1,178 @@
+<!-- begin::Header Nav -->
+<ul class="menu-nav" [ngClass]="ulCSSClasses">
+
+  <!-- Mega submenu -->
+  <!-- begin::1 Level -->
+  <li
+    class="menu-item menu-item-submenu menu-item-rel"
+    routerLinkActive="menu-item-active"
+    [attr.data-menu-toggle]="headerMenuDesktopToggle"
+    aria-haspopup="true"
+  >
+    <a
+      class="menu-link menu-toggle"
+      routerLinkActive="active"
+      href="/ngbootstrap"
+    >
+      <span class="menu-text" style="font-size: 1.1rem;">خدمات حقوقی</span>
+      <i class="menu-arrow" [inlineSVG]="'./assets/media/svg/icons/General/Law3.svg'" cacheSVG="true"
+         class="svg-icon svg-icon-primary"></i>
+    </a>
+    <div
+      class="menu-submenu menu-submenu-fixed menu-submenu-left"
+      style="width: '500px'"
+    >
+      <div class="menu-subnav">
+        <ul class="menu-content">
+          <li class="menu-item">
+            <h3 class="menu-heading menu-toggle">
+              <i class="menu-bullet menu-bullet-dot"><span></span></i>
+              <span class="menu-text">مشاوره</span>
+              <i class="menu-arrow"></i>
+            </h3>
+            <ul class="menu-inner">
+              <!-- begin::3 Level -->
+              <li class="menu-item" routerLinkActive="menu-item-active">
+                <a
+                  class="menu-link"
+                  routerLink="/ngbootstrap/accordion"
+                  routerLinkActive="active"
+                >
+                  <span class="menu-text">مشاوره تلفنی</span>
+                </a>
+              </li>
+              <!-- end::3 Level -->
+
+              <!-- begin::3 Level -->
+              <li class="menu-item" routerLinkActive="menu-item-active">
+                <a
+                  class="menu-link"
+                  routerLinkActive="active"
+                  routerLink="/ngbootstrap/alert"
+                >
+                  <span class="menu-text">مشاوره آنلاین</span>
+                </a>
+              </li>
+              <!-- end::3 Level -->
+
+              <!-- begin::3 Level -->
+              <li class="menu-item" routerLinkActive="menu-item-active">
+                <a
+                  class="menu-link"
+                  routerLinkActive="active"
+                  routerLink="/ngbootstrap/buttons"
+                >
+                  <span class="menu-text">پرسش و پاسخ</span>
+                </a>
+              </li>
+              <!-- end::3 Level -->
+
+              <!-- begin::3 Level -->
+              <li class="menu-item" routerLinkActive="menu-item-active">
+                <a
+                  class="menu-link"
+                  routerLink="/ngbootstrap/carousel"
+                  routerLinkActive="active"
+                >
+                  <span class="menu-text">مشاوره حضوری</span>
+                </a>
+              </li>
+              <!-- end::3 Level -->
+            </ul>
+          </li>
+
+          <li class="menu-item">
+            <h3 class="menu-heading menu-toggle">
+              <i class="menu-bullet menu-bullet-dot"><span></span></i>
+              <span class="menu-text">حقوقی</span>
+              <i class="menu-arrow"></i>
+            </h3>
+            <ul class="menu-inner">
+              <!-- begin::3 Level -->
+              <li class="menu-item" routerLinkActive="menu-item-active">
+                <a
+                  class="menu-link"
+                  routerLink="/ngbootstrap/collapse"
+                  routerLinkActive="active"
+                >
+                  <span class="menu-text">محاسبات حقوقی</span>
+                </a>
+              </li>
+              <!-- end::3 Level -->
+
+              <!-- begin::3 Level -->
+              <li class="menu-item" routerLinkActive="menu-item-active">
+                <a
+                  class="menu-link"
+                  routerLink="/ngbootstrap/datepicker"
+                  routerLinkActive="active"
+                >
+                  <span class="menu-text">اوراق قضائی</span>
+                </a>
+              </li>
+              <!-- end::3 Level -->
+
+              <!-- begin::3 Level -->
+              <li class="menu-item" routerLinkActive="menu-item-active">
+                <a
+                  class="menu-link"
+                  routerLink="/ngbootstrap/dropdown"
+                  routerLinkActive="active"
+                >
+                  <span class="menu-text">تنظیم قرارداد</span>
+                </a>
+              </li>
+              <!-- end::3 Level -->
+              <!-- begin::3 Level -->
+              <li class="menu-item" routerLinkActive="menu-item-active">
+                <a
+                  class="menu-link"
+                  routerLink="/ngbootstrap/carousel"
+                  routerLinkActive="active"
+                >
+                  <span class="menu-text">جستجوی وکیل</span>
+                </a>
+              </li>
+              <!-- end::3 Level -->
+
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </li>
+  <!-- end::1 Level -->
+
+  <!-- Classic submenu -->
+  <!-- begin::1 Level -->
+  <li
+    class="menu-item menu-item-submenu menu-item-rel"
+    routerLinkActive="menu-item-active"
+    [attr.data-menu-toggle]="headerMenuDesktopToggle"
+    aria-haspopup="true"
+  >
+    <a class="menu-link" routerLinkActive="active">
+      <span class="menu-text">02112345</span>
+      <span [inlineSVG]="'./assets/media/svg/icons/Communication/Call.svg'" cacheSVG="true"
+            class="svg-icon svg-icon-primary"></span>
+      <i class="menu-arrow"></i>
+    </a>
+  </li>
+  <!-- end::1 Level -->
+  <!-- begin::1 Level -->
+  <li
+          class="menu-item menu-item-submenu menu-item-rel"
+          routerLinkActive="menu-item-active"
+          [attr.data-menu-toggle]="headerMenuDesktopToggle"
+          aria-haspopup="true"
+  >
+    <a class="menu-link" routerLinkActive="active">
+      <span [inlineSVG]="'./assets/media/svg/logos/telegram.svg'" cacheSVG="true"
+            class="svg-icon svg-icon-dark svg-icon-primary"></span>
+      <i class="menu-arrow"></i>
+    </a>
+  </li>
+  <!-- end::1 Level -->
+</ul>
+<!-- end::Header Nav -->
