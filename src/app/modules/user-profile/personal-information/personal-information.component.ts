@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { AuthService, UserModel } from '../../auth';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-personal-information',
@@ -17,7 +18,7 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
   avatarPic = 'none';
   isLoading$: Observable<boolean>;
 
-  constructor(private userService: AuthService, private fb: FormBuilder) {
+  constructor(private userService: AuthService, private fb: FormBuilder, private router: Router) {
     this.isLoading$ = this.userService.isLoadingSubject.asObservable();
   }
 
@@ -63,6 +64,9 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
       this.userService.currentUserSubject.next(Object.assign({}, this.user));
       this.userService.isLoadingSubject.next(false);
     }, 2000);
+
+    if(this.router.url.includes('auth'))
+      this.router.navigate(['/']);
   }
 
   cancel() {

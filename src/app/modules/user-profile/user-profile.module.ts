@@ -18,6 +18,7 @@ import {TaxInformationComponent} from './tax-information/tax-information.compone
 import {StatementsComponent} from './statements/statements.component';
 import {UserProfileRoutingModule} from './user-profile-routing.module';
 import {ProfileCardComponent} from './_components/profile-card/profile-card.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -32,18 +33,19 @@ import {ProfileCardComponent} from './_components/profile-card/profile-card.comp
     StatementsComponent,
     ProfileCardComponent
   ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    CRUDTableModule,
-    FormsModule,
-    ReactiveFormsModule,
-    InlineSVGModule,
-    UserProfileRoutingModule,
-    DropdownMenusModule,
-    NgbDropdownModule,
-    NgbTooltipModule,
-    WidgetsModule
-  ]
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        CRUDTableModule,
+        FormsModule,
+        ReactiveFormsModule,
+        InlineSVGModule,
+        UserProfileRoutingModule,
+        DropdownMenusModule,
+        NgbDropdownModule,
+        NgbTooltipModule,
+        WidgetsModule,
+        MatFormFieldModule
+    ]
 })
 export class UserProfileModule {}
