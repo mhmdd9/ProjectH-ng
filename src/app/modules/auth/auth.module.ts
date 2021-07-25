@@ -10,6 +10,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthComponent } from './auth.component';
 import {TranslationModule} from '../i18n/translation.module';
 import { PhoneConfirmationComponent } from './phone-confirmation/phone-confirmation.component';
+import { UserTypeComponent } from './registration/user-type/user-type.component';
+import {MatRadioModule} from "@angular/material/radio";
+import {InlineSVGModule} from "ng-inline-svg";
 
 @NgModule({
   declarations: [
@@ -19,6 +22,7 @@ import { PhoneConfirmationComponent } from './phone-confirmation/phone-confirmat
     LogoutComponent,
     AuthComponent,
     PhoneConfirmationComponent,
+    UserTypeComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +31,8 @@ import { PhoneConfirmationComponent } from './phone-confirmation/phone-confirmat
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatRadioModule,
+    InlineSVGModule,
   ]
 })
 export class AuthModule {}

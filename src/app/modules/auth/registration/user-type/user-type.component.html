@@ -1,0 +1,72 @@
+<!--begin::Signup-->
+<div class="login-form login-signup">
+    <!--begin::Form-->
+    <form
+            class="form"
+            novalidate="novalidate"
+            id="kt_login_signup_form"
+            (ngSubmit)="submit()"
+    >
+        <!--begin::Title-->
+        <div class="pb-13 pt-lg-0 pt-5">
+            <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">
+                نوع کاربری خود را انتخاب نمایید
+            </h3>
+        </div>
+        <!--end::Title-->
+
+        <!--begin::Form group-->
+        <div class="form-group">
+            <div class="example-preview">
+                <div class="example-container">
+                    <mat-radio-group
+                            class="example-radio-group"
+                    >
+                        <mat-radio-button
+                                class="example-radio-button"
+                                value="0"
+                        >
+                            <label class="font-size-h6 font-weight-bolder text-dark pt-5" style="font-family: 'Shabnam';">
+                                دریافت خدمات حقوقی
+                                <span [inlineSVG]="'../assets/media/svg/icons/General/User.svg'"
+                                      class="svg-icon svg-icon-3x align-self-center"
+                                ></span>
+                            </label>
+                        </mat-radio-button>
+                        <mat-radio-button
+                                class="example-radio-button"
+                                value="1"
+                        >
+                            <label class="font-size-h6 font-weight-bolder text-dark pt-5" style="font-family: 'Shabnam';"
+                            >وکیل/کارشناس حقوقی
+                                <span [inlineSVG]="'../assets/media/svg/icons/General/law.svg'"
+                                      class="svg-icon svg-icon-3x align-self-center"
+                                ></span>
+                            </label>
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+        <!--end::Form group-->
+
+        <!--begin::Form group-->
+        <div class="form-group d-flex flex-wrap pb-lg-0 pb-3">
+            <button
+                    type="submit"
+                    id="kt_login_signup_submit"
+                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4"
+            >
+                ثبت و ادامه
+            </button>
+
+            <ng-container *ngIf="isLoading$ | async">
+                <span class="spinner spinner-primary ml-5"></span>
+            </ng-container>
+        </div>
+        <!--end::Form group-->
+    </form>
+    <!--end::Form-->
+</div>
+<!--end::Signup-->
+

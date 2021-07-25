@@ -65,7 +65,7 @@ export class PhoneConfirmationComponent implements OnInit {
         .pipe(first())
         .subscribe((user: UserModel) => {
           if (user) {
-            this.router.navigate(['/']);
+            this.router.navigate(['/auth/registration/user-type']);
           } else {
             this.hasError = true;
           }
