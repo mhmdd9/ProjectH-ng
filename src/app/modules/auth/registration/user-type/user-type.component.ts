@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {first} from "rxjs/operators";
-import {UserModel} from "../..";
+import {Router} from "@angular/router";
+import {AuthService} from "../..";
 
 @Component({
   selector: 'app-user-type',
@@ -12,12 +12,15 @@ export class UserTypeComponent implements OnInit {
 
   isLoading$: Observable<boolean>;
 
-  constructor() { }
+  constructor(private router: Router,
+              private authService: AuthService) {
+    this.isLoading$ = this.authService.isLoading$;
+  }
 
   ngOnInit(): void {
   }
 
   submit() {
-    return;
+    this.router.navigate(['/auth/personal-information']);
   }
 }
