@@ -10,6 +10,7 @@ import { StatementsComponent } from './statements/statements.component';
 import { TaxInformationComponent } from './tax-information/tax-information.component';
 import { UserProfileComponent } from './user-profile.component';
 import {ExtraPersonalInfoComponent} from "./extra-personal-info/extra-personal-info.component";
+import {BankAccountInfoComponent} from "./bank-account-info/bank-account-info.component";
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path: 'email-settings',
         component: EmailSettingsComponent
+      },
+      {
+        path: 'bank-account-info',
+        component: BankAccountInfoComponent
       },
       {
         path: 'saved-credic-cards',

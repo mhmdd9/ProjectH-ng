@@ -1,0 +1,91 @@
+<ng-container *ngIf="user">
+    <div class="card card-custom card-stretch" [formGroup]="formGroup">
+        <!-- begin::Loading -->
+        <ng-container *ngIf="isLoading$ | async">
+            <div class="progress progress-modal">
+                <div
+                        class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
+                        role="progressbar"
+                        style="width: 100%"
+                        aria-valuenow="100"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                ></div>
+            </div>
+        </ng-container>
+        <!-- end::Loading -->
+        <!--begin::Header-->
+        <div class="card-header py-3">
+            <div class="card-title align-items-start flex-column">
+                <h3 class="card-label font-weight-bolder text-dark">اطلاعات تکمیلی</h3>
+                <!--<span class="text-muted font-weight-bold font-size-sm mt-1">ویرایش اطلاعات فردی</span>-->
+            </div>
+            <div class="card-toolbar">
+                <button type="submit" class="btn btn-success mr-2">ذخیره</button>
+                <button type="reset" class="btn btn-secondary" >انصراف</button>
+            </div>
+        </div>
+        <!--end::Header-->
+        <!--begin::Form-->
+        <div class="form">
+            <!--begin::Body-->
+            <div class="card-body">
+                <!--begin::Alert-->
+                <div class="alert alert-custom alert-light-primary fade show mb-10" role="alert">
+                    <div class="alert-icon">
+                        <span class="svg-icon svg-icon-3x svg-icon-primary"
+                              [inlineSVG]="'./assets/media/svg/icons/Code/Info-circle.svg'"
+                              cacheSVG="true"
+                        >
+                        </span>
+                    </div>
+                    <div class="alert-text font-weight-bold">
+                        مشخصات حساب برای واریز هزینه‌های مشاوره یا قراردادهای احتمالی را وارد نمایید.
+                        <br/>
+                        (توجه داشته باشید که شماره حساب حتما باید به نام خودتان باشد)
+                    </div>
+                    <div class="alert-close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">
+                            <i class="ki ki-close"></i>
+                          </span>
+                        </button>
+                    </div>
+                </div>
+                <!--end::Alert-->
+                <div class="row">
+                    <label class="col-xl-3"></label>
+                    <div class="col-lg-9 col-xl-6">
+                        <h5 class="font-weight-bold mb-6">اطلاعات حساب بانکی</h5>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">نام بانک</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="text"
+                        />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">شماره شبا</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="text" value="-IR" style="text-align: left;"
+                        />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">شماره کارت</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="number"
+                        />
+                    </div>
+                </div>
+            </div>
+            <!--end::Body-->
+        </div>
+        <!--end::Form-->
+    </div>
+</ng-container>

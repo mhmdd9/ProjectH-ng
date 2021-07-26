@@ -23,6 +23,7 @@ import { SpecInfoComponent } from './spec-info/spec-info.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { ExtraPersonalInfoComponent } from './extra-personal-info/extra-personal-info.component';
 import {MatSelectModule} from "@angular/material/select";
+import { BankAccountInfoComponent } from './bank-account-info/bank-account-info.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {MatSelectModule} from "@angular/material/select";
     StatementsComponent,
     ProfileCardComponent,
     SpecInfoComponent,
-    ExtraPersonalInfoComponent
+    ExtraPersonalInfoComponent,
+    BankAccountInfoComponent
   ],
     imports: [
         CommonModule,
