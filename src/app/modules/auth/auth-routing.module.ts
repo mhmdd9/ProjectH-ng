@@ -8,6 +8,7 @@ import {LogoutComponent} from './logout/logout.component';
 import {PhoneConfirmationComponent} from "./phone-confirmation/phone-confirmation.component";
 import {UserTypeComponent} from "./registration/user-type/user-type.component";
 import {PersonalInformationComponent} from "../user-profile/personal-information/personal-information.component";
+import {SpecInfoComponent} from "../user-profile/spec-info/spec-info.component";
 
 
 const routes: Routes = [
@@ -44,6 +45,10 @@ const routes: Routes = [
       {
         path: 'personal-information',
         component: PersonalInformationComponent,
+      },
+      {
+        path: 'spec-info',
+        component: SpecInfoComponent,
       },
       {
         path: 'logout',

@@ -21,6 +21,8 @@ import {ProfileCardComponent} from './_components/profile-card/profile-card.comp
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { SpecInfoComponent } from './spec-info/spec-info.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { ExtraPersonalInfoComponent } from './extra-personal-info/extra-personal-info.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     TaxInformationComponent,
     StatementsComponent,
     ProfileCardComponent,
-    SpecInfoComponent
+    SpecInfoComponent,
+    ExtraPersonalInfoComponent
   ],
     imports: [
         CommonModule,
@@ -50,7 +53,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
         WidgetsModule,
         MatFormFieldModule,
         NgbCollapseModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatSelectModule
     ]
 })
 export class UserProfileModule {}

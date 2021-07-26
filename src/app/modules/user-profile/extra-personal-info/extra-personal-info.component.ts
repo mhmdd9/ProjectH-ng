@@ -1,15 +1,86 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Observable, Subscription} from "rxjs";
+import {AuthService, UserModel} from "../../auth";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
+import {first} from "rxjs/operators";
 
 @Component({
   selector: 'app-extra-personal-info',
   templateUrl: './extra-personal-info.component.html',
   styleUrls: ['./extra-personal-info.component.scss']
 })
-export class ExtraPersonalInfoComponent implements OnInit {
+export class ExtraPersonalInfoComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  user: UserModel;
+  formGroup: FormGroup;
+  firstUserState: UserModel;
+  isLoading$: Observable<boolean>;
+  subscriptions: Subscription[] = [];
 
-  ngOnInit(): void {
+  constructor(private userService: AuthService, private fb: FormBuilder, private router: Router) {
+    this.isLoading$ = this.userService.isLoadingSubject.asObservable();
   }
 
+  ngOnInit(): void {
+    const sb = this.userService.currentUserSubject.asObservable().pipe(
+        first(user => !!user)
+    ).subscribe(user => {
+      this.user = Object.assign({}, user);
+      this.firstUserState = Object.assign({}, user);
+      this.loadForm();
+    });
+    this.subscriptions.push(sb);
+  }
+
+  save() {
+    this.formGroup.markAllAsTouched();
+    if (!this.formGroup.valid) {
+      return;
+    }
+
+    const formValues = this.formGroup.value;
+    this.user = Object.assign(this.user, formValues);
+
+    // Do request to your server for user update, we just imitate user update there
+    this.userService.isLoadingSubject.next(true);
+    setTimeout(() => {
+      this.userService.currentUserSubject.next(Object.assign({}, this.user));
+      this.userService.isLoadingSubject.next(false);
+    }, 2000);
+
+    if(this.router.url.includes('auth'))
+      this.router.navigate(['/']);
+  }
+
+  cancel() {
+    this.user = Object.assign({}, this.firstUserState);
+    this.loadForm();
+  }
+
+  loadForm() {
+    this.formGroup = this.fb.group({
+      pic: [this.user.pic],
+      firstname: [this.user.firstname, Validators.required],
+      lastname: [this.user.lastname, Validators.required],
+      companyName: [this.user.companyName, Validators.required],
+      phone: [this.user.phone, Validators.required],
+      email: [this.user.email, Validators.compose([Validators.required, Validators.email])],
+      website: [this.user.website, Validators.required]
+    });
+  }
+
+  isControlValid(controlName: string): boolean {
+    const control = this.formGroup.controls[controlName];
+    return control.valid && (control.dirty || control.touched);
+  }
+
+  isControlInvalid(controlName: string): boolean {
+    const control = this.formGroup.controls[controlName];
+    return control.invalid && (control.dirty || control.touched);
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sb => sb.unsubscribe());
+  }
 }

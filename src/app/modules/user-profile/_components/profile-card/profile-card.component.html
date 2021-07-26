@@ -9,7 +9,6 @@
           <i class="ki ki-bold-more-hor"></i>
         </a>
         <div ngbDropdownMenu class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-          <app-dropdown-menu4></app-dropdown-menu4>
         </div>
       </div>
     </div>
@@ -30,7 +29,6 @@
         </div>
         <div class="mt-2">
           <a class="btn btn-sm btn-primary font-weight-bold mr-2 py-2 px-3 px-xxl-5 my-1 cursor-pointer">چت</a>
-          <a class="btn btn-sm btn-success font-weight-bold py-2 px-3 px-xxl-5 my-1 cursor-pointer">دنبال‌کردن</a>
         </div>
       </div>
     </div>
@@ -76,6 +74,16 @@
         </a>
       </div>
       <div class="navi-item mb-2">
+        <a class="navi-link py-4" routerLink="/user-profile/extra-personal-info" routerLinkActive="active">
+          <span class="navi-icon mr-2">
+            <span [inlineSVG]="'./assets/media/svg/icons/Files/User-folder.svg'" cacheSVG="true" class="svg-icon"></span>
+          </span>
+          <span class="navi-text font-size-lg">
+            اطلاعات تکمیلی
+          </span>
+        </a>
+      </div>
+      <div class="navi-item mb-2">
         <a class="navi-link py-4" routerLink="/user-profile/change-password" routerLinkActive="active">
           <span class="navi-icon mr-2">
             <span [inlineSVG]="'./assets/media/svg/icons/Communication/Shield-user.svg'" cacheSVG="true"
@@ -83,9 +91,6 @@
           </span>
           <span class="navi-text font-size-lg">
             تغییر رمز عبور
-          </span>
-          <span class="navi-label">
-            <span class="label label-light-danger label-rounded font-weight-bold">5</span>
           </span>
         </a>
       </div>

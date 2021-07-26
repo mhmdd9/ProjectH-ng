@@ -9,6 +9,7 @@ import { SavedCreditCardsComponent } from './saved-credit-cards/saved-credit-car
 import { StatementsComponent } from './statements/statements.component';
 import { TaxInformationComponent } from './tax-information/tax-information.component';
 import { UserProfileComponent } from './user-profile.component';
+import {ExtraPersonalInfoComponent} from "./extra-personal-info/extra-personal-info.component";
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'personal-information',
         component: PersonalInformationComponent,
+      },
+      {
+        path: 'extra-personal-info',
+        component: ExtraPersonalInfoComponent,
       },
       {
         path: 'account-information',

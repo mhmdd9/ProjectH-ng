@@ -1,1 +1,242 @@
-<p>extra-personal-info works!</p>
+<ng-container *ngIf="user">
+    <div class="card card-custom card-stretch" [formGroup]="formGroup">
+        <!-- begin::Loading -->
+        <ng-container *ngIf="isLoading$ | async">
+            <div class="progress progress-modal">
+                <div
+                        class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
+                        role="progressbar"
+                        style="width: 100%"
+                        aria-valuenow="100"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                ></div>
+            </div>
+        </ng-container>
+        <!-- end::Loading -->
+        <!--begin::Header-->
+        <div class="card-header py-3">
+            <div class="card-title align-items-start flex-column">
+                <h3 class="card-label font-weight-bolder text-dark">اطلاعات تکمیلی</h3>
+                <!--<span class="text-muted font-weight-bold font-size-sm mt-1">ویرایش اطلاعات فردی</span>-->
+            </div>
+            <div class="card-toolbar">
+                <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-2" (click)="save()">ذخیره</button>
+                <button type="reset" class="btn btn-secondary" (click)="cancel()">انصراف</button>
+            </div>
+        </div>
+        <!--end::Header-->
+        <!--begin::Form-->
+        <div class="form">
+            <!--begin::Body-->
+            <div class="card-body">
+                <div class="row">
+                  <label class="col-xl-3"></label>
+                  <div class="col-lg-9 col-xl-6">
+                    <h5 class="font-weight-bold mb-6">اطلاعات تکمیلی</h5>
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">جنسیت</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <select class="form-control form-control-solid">
+                            <option value="">انتخاب نمایید</option>
+                            <option value="0">
+                                زن
+                            </option>
+                            <option value="1">
+                                مرد
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">محل تولد</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="text"
+                        />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">سال تولد</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="text"
+                        />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">کد ملی</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="text" pattern="\d" maxlength="10"
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xl-3"></label>
+                    <div class="col-lg-9 col-xl-6">
+                        <h5 class="font-weight-bold mt-10 mb-6">اطلاعات تماس</h5>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">تلفن همراه</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="text" value="09121234567" style="text-align: left;"
+                        />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">ایمیل</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="text" value="admin@demo.com" style="text-align: left;"
+                        />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">وبسایت</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="text" value=".www" style="text-align: left;"
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xl-3"></label>
+                    <div class="col-lg-9 col-xl-6">
+                        <h5 class="font-weight-bold mt-10 mb-6">اطلاعات کاری</h5>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">شماره پروانه</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="number" maxlength="20"
+                        />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">نوع پروانه</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <select class="form-control form-control-solid">
+                            <option value="">انتخاب نمایید</option>
+                            <option value="0">
+                                کانون وکلا
+                            </option>
+                            <option value="1">
+                                قوه قضائیه
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">پایه</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <select class="form-control form-control-solid">
+                            <option value="">انتخاب نمایید</option>
+                            <option value="0">
+                                پایه یک
+                            </option>
+                            <option value="1">
+                                کارآموز
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">قبول پرونده</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <select class="form-control form-control-solid">
+                            <option value="">انتخاب نمایید</option>
+                            <option value="overnight">
+                                حقوقی
+                            </option>
+                            <option value="express">
+                                کیفری
+                            </option>
+                            <option value="express">
+                                حقوقی و کیفری
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">استان‌های پذیرش پرونده</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <mat-select placeholder="استان‌ها" multiple>
+                            <mat-option [value]="0">تهران</mat-option>
+                            <mat-option [value]="1">البرز</mat-option>
+                            <mat-option [value]="2">مازندران</mat-option>
+                            <mat-option [value]="3">مرکزی</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xl-3"></label>
+                    <div class="col-lg-9 col-xl-6">
+                        <h5 class="font-weight-bold mt-10 mb-6">اطلاعات محل سکونت</h5>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">نشانی</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <textarea class="form-control form-control-lg form-control-solid"
+                                  rows="2"
+                        ></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">تلفن</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="number" maxlength="20"
+                        />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">کد پستی</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="number" maxlength="20"
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xl-3"></label>
+                    <div class="col-lg-9 col-xl-6">
+                        <h5 class="font-weight-bold mt-10 mb-6">اطلاعات محل کار</h5>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">نشانی</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <textarea class="form-control form-control-lg form-control-solid"
+                                  rows="4"
+                        ></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">تلفن</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="number" maxlength="20"
+                        />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">کد پستی</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="number" maxlength="20"
+                        />
+                    </div>
+                </div>
+            </div>
+            <!--end::Body-->
+        </div>
+        <!--end::Form-->
+    </div>
+</ng-container>
