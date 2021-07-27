@@ -11,6 +11,7 @@ import { TaxInformationComponent } from './tax-information/tax-information.compo
 import { UserProfileComponent } from './user-profile.component';
 import {ExtraPersonalInfoComponent} from "./extra-personal-info/extra-personal-info.component";
 import {BankAccountInfoComponent} from "./bank-account-info/bank-account-info.component";
+import {EducInfoComponent} from "./educ-info/educ-info.component";
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'extra-personal-info',
         component: ExtraPersonalInfoComponent,
+      },
+      {
+        path: 'educ-info',
+        component: EducInfoComponent,
       },
       {
         path: 'account-information',
