@@ -17,7 +17,7 @@
         <!--begin::Header-->
         <div class="card-header py-3">
             <div class="card-title align-items-start flex-column">
-                <h3 class="card-label font-weight-bolder text-dark">سوابق تحصیلی</h3>
+                <h3 class="card-label font-weight-bolder text-dark">سوابق کاری</h3>
                 <!--<span class="text-muted font-weight-bold font-size-sm mt-1">ویرایش اطلاعات فردی</span>-->
             </div>
             <div class="card-toolbar">
@@ -33,11 +33,35 @@
                 <div class="row">
                     <label class="col-xl-3"></label>
                     <div class="col-lg-9 col-xl-6">
-                        <h5 class="font-weight-bold mb-6">اطلاعات تحصیلی</h5>
+                        <h5 class="font-weight-bold mb-6">اطلاعات کاری</h5>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-xl-3 col-lg-3 col-form-label">نام دانشگاه</label>
+                    <label class="col-xl-3 col-lg-3 col-form-label">شرح مختصر تجارب کاری</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <textarea class="form-control form-control-lg form-control-solid"
+                                  rows="3"
+                                  placeholder="در صورت تمایل تخصص، تجارب و تأليفات علمی خود را حداکثر در 150 کلمه شرح دهید."
+                        ></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">هیات علمی دانشگاه</label>
+                    <div class="col-lg-9 col-xl-8">
+                        <div class="input-group input-group-lg input-group-solid">
+                            <input type="text" class="form-control form-control-lg form-control-solid"/>
+                        </div>
+                        <span class="form-text text-muted">در صورتی که عضو هيئت علمی دانشگاه هستيد نام دانشگاه را در این جا بنویسيد.</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-xl-3"></label>
+                    <div class="col-lg-9 col-xl-6">
+                        <h5 class="font-weight-bold mt-10 mb-6">افزودن سابقه کاری</h5>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">نام موسسه</label>
                     <div class="col-lg-9 col-xl-8">
                         <input class="form-control form-control-lg form-control-solid"
                                type="text"
@@ -45,34 +69,11 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-xl-3 col-lg-3 col-form-label">مقطع تحصیلی</label>
+                    <label class="col-xl-3 col-lg-3 col-form-label">سمت</label>
                     <div class="col-lg-9 col-xl-8">
-                        <select class="form-control form-control-solid">
-                            <option value="">انتخاب نمایید</option>
-                            <option value="0">
-                                کارشناسی
-                            </option>
-                            <option value="1">
-                                کارشناسی ارشد
-                            </option>
-                            <option value="2">
-                                دکتری
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-xl-3 col-lg-3 col-form-label">رشته تحصیلی</label>
-                    <div class="col-lg-9 col-xl-8">
-                        <select class="form-control form-control-solid">
-                            <option value="">انتخاب نمایید</option>
-                            <option value="0">
-                                حقوق
-                            </option>
-                            <option value="1">
-                                مشاوره
-                            </option>
-                        </select>
+                        <input class="form-control form-control-lg form-control-solid"
+                               type="text"
+                        />
                     </div>
                 </div>
                 <div class="form-group row">
@@ -88,41 +89,15 @@
                         />
                     </div>
                     <label class="checkbox mb-0">
-                        <input type="checkbox" formControlName="agree" name="agree" />در حال تحصیل
+                        <input type="checkbox" formControlName="agree" name="agree" />در حال کار
                         <span></span>
                     </label>
-                </div>
-                <div class="form-group row">
-                    <label class="col-xl-3 col-lg-3 col-form-label">تصویر مدرک تحصیلی</label>
-                    <div class="col-lg-9 col-xl-7">
-                        <input class="form-control form-control-lg form-control-solid"
-                               type="text" maxlength="20" readonly
-                        />
-                    </div>
-                    <label class="btn btn-icon btn-white btn-hover-text-primary btn-shadow"
-                           data-action="change"
-                           data-toggle="tooltip"
-                           title="افزودن تصویر"
-                           data-original-title="Change avatar"
-                    >
-                        <i class="fa fa-plus icon text-primary"></i>
-                        <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg" style="display: none;"/>
-                    </label>
-                </div>
-                <div class="form-group row">
-                    <label class="col-xl-3 col-lg-3 col-form-label"></label>
-                    <div class="col-lg-9 col-xl-4">
-                        <label class="checkbox mb-0">
-                            <input type="checkbox" formControlName="agree" name="agree" /> این آخرین مدرک من است.
-                            <span></span>
-                        </label>
-                    </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-xl-3 col-lg-3 col-form-label"></label>
                     <div class="col-lg-9 col-xl-4">
                         <button class="form-control form-control-lg btn-primary"
-                               type="button"
+                                type="button"
                         >
                             افزودن
                         </button>

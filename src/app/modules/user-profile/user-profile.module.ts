@@ -25,6 +25,7 @@ import { ExtraPersonalInfoComponent } from './extra-personal-info/extra-personal
 import {MatSelectModule} from "@angular/material/select";
 import { BankAccountInfoComponent } from './bank-account-info/bank-account-info.component';
 import { EducInfoComponent } from './educ-info/educ-info.component';
+import { WorkResumeComponent } from './work-resume/work-resume.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { EducInfoComponent } from './educ-info/educ-info.component';
     SpecInfoComponent,
     ExtraPersonalInfoComponent,
     BankAccountInfoComponent,
-    EducInfoComponent
+    EducInfoComponent,
+    WorkResumeComponent
   ],
     imports: [
         CommonModule,

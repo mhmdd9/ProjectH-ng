@@ -12,6 +12,7 @@ import { UserProfileComponent } from './user-profile.component';
 import {ExtraPersonalInfoComponent} from "./extra-personal-info/extra-personal-info.component";
 import {BankAccountInfoComponent} from "./bank-account-info/bank-account-info.component";
 import {EducInfoComponent} from "./educ-info/educ-info.component";
+import {WorkResumeComponent} from "./work-resume/work-resume.component";
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
       {
         path: 'educ-info',
         component: EducInfoComponent,
+      },
+      {
+        path: 'work-resume',
+        component: WorkResumeComponent,
       },
       {
         path: 'account-information',
