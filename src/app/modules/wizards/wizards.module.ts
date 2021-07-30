@@ -8,14 +8,16 @@ import { Wizard2Component } from './wizard2/wizard2.component';
 import { Wizard3Component } from './wizard3/wizard3.component';
 import { Wizard4Component } from './wizard4/wizard4.component';
 import { WizardsRoutingModule } from './wizards-routing.module';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [WizardsComponent, Wizard1Component, Wizard2Component, Wizard3Component, Wizard4Component],
-  imports: [
-    CommonModule,
-    FormsModule,
-    InlineSVGModule,
-    WizardsRoutingModule,
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        InlineSVGModule,
+        WizardsRoutingModule,
+        MatSelectModule,
+    ]
 })
 export class WizardsModule { }

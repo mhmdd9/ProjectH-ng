@@ -1,44 +1,52 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import KTWizard from '../../../../assets/js/components/wizard';
 import { KTUtil } from '../../../../assets/js/components/util';
+
 @Component({
   selector: 'app-wizard1',
   templateUrl: './wizard1.component.html',
   styleUrls: ['./wizard1.component.scss']
 })
 export class Wizard1Component implements OnInit, AfterViewInit, OnDestroy {
+
   @ViewChild('wizard', { static: true }) el: ElementRef;
+
   model: any = {
-    address1: 'منطقه 3 خیابان نلسون ماندلا',
-    address2: 'آدرس دوم',
+    fname: 'John',
+    lname: 'Wick',
+    phone: '+61412345678',
+    email: 'john.wick@reeves.com',
+    address1: 'Address Line 1',
+    address2: 'Address Line 2',
     postcode: '3000',
     city: 'تهران',
     state: 'تهران',
-    country: 'ایران',
-    package: 'مشاوره فردی',
-    weight: '25',
-    width: '110',
-    height: '90',
-    length: '150',
-    delivery: 'شب',
-    packaging: 'معمولی',
-    preferreddelivery: 'صبح',
-    locaddress1: 'آدرس 1',
-    locaddress2: 'آدرس 2',
+    country: 'AU',
+    delivery: 'overnight',
+    packaging: 'regular',
+    preferreddelivery: 'morning',
+    locaddress1: 'Address Line 1',
+    locaddress2: 'Address Line 2',
     locpostcode: '3072',
-    loccity: 'دماوند',
-    locstate: 'تهران',
-    loccountry: 'ایران',
+    loccity: 'Preston',
+    locstate: 'VIC',
+    loccountry: 'AU',
+    ccname: 'John Wick',
+    ccnumber: '4444 3333 2222 1111',
+    ccmonth: '01',
+    ccyear: '21',
+    cccvv: '123',
   };
   submitted = false;
   wizard: any;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
+  }
+
+  ngAfterViewInit(): void {
     // Initialize form wizard
     this.wizard = new KTWizard(this.el.nativeElement, {
       startStep: 1

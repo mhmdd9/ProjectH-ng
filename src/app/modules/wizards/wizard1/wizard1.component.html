@@ -1,244 +1,413 @@
 <div class="card card-custom gutter-b">
   <div class="card-header">
     <div class="card-title">
-      <h3 class="card-label">تکمیل اطلاعات</h3>
+      <h3 class="card-label">درخواست مشاوره</h3>
     </div>
   </div>
   <div class="card-body">
     <!--begin: Wizard -->
     <div
-      #wizard
-      class="wizard wizard-1"
-      id="kt_wizard_v1"
-      data-wizard-state="step-first"
-      data-wizard-clickable="true"
+            #wizard
+            class="wizard wizard-2"
+            id="kt_wizard_v2"
+            data-wizard-state="step-first"
     >
-      <!--begin: Form Wizard Nav -->
-      <div class="wizard-nav border-bottom">
-        <div class="wizard-steps p-8 p-lg-10">
+      <div class="wizard-nav border-right py-8 px-8 py-lg-20 px-lg-10">
+        <!--begin: Form Wizard Nav -->
+        <div class="wizard-steps">
           <a
-            class="wizard-step"
-            href="javascript:;"
-            data-wizard-type="step"
-            data-wizard-state="current"
+                  class="wizard-step"
+                  href="javascript:;"
+                  data-wizard-type="step"
+                  data-wizard-state="current"
           >
-            <div class="wizard-label">
-              <i class="wizard-icon flaticon-bus-stop"></i>
-              <h3 class="wizard-title">1) ثبت موقعیت جغرافیایی</h3>
+            <div class="wizard-wrapper">
+              <div class="wizard-icon">
+                <span
+                        class="svg-icon svg-icon-3x"
+                        [inlineSVG]="'./assets/media/svg/icons/Map/Marker1.svg'"
+                ></span>
+              </div>
+              <div class="wizard-label">
+                <div class="wizard-title">موقعیت مکانی</div>
+                <div class="wizard-desc">موقعیت مکانی خود را ثبت نمایید</div>
+              </div>
             </div>
           </a>
           <a class="wizard-step" href="javascript:;" data-wizard-type="step">
-            <div class="wizard-label">
-              <i class="wizard-icon flaticon-list"></i>
-              <h3 class="wizard-title">2) ثبت مشخصات</h3>
+            <div class="wizard-wrapper">
+              <div class="wizard-icon">
+                <span
+                        class="svg-icon svg-icon-3x"
+                        [inlineSVG]="'./assets/media/svg/icons/General/Thunder-move.svg'"
+                ></span>
+              </div>
+              <div class="wizard-label">
+                <div class="wizard-title">انتخاب نوع متخصص</div>
+                <div class="wizard-desc">نوع متخصص برای مشاوره خود را انتخاب نمایید</div>
+              </div>
             </div>
           </a>
           <a class="wizard-step" href="javascript:;" data-wizard-type="step">
-            <div class="wizard-label">
-              <i class="wizard-icon flaticon-globe"></i>
-              <h3 class="wizard-title">3) بازبینی و ثبت</h3>
+            <div class="wizard-wrapper">
+              <div class="wizard-icon">
+                <span
+                        class="svg-icon svg-icon-3x"
+                        [inlineSVG]="
+                    './assets/media/svg/icons/General/User.svg'
+                  "
+                ></span>
+              </div>
+              <div class="wizard-label">
+                <div class="wizard-title">کارشناس انتخابی</div>
+                <div class="wizard-desc">مشخصات کارشناس انتخاب شده برای شما</div>
+              </div>
+            </div>
+          </a>
+          <a class="wizard-step" href="javascript:;" data-wizard-type="step">
+            <div class="wizard-wrapper">
+              <div class="wizard-icon">
+                <span
+                        class="svg-icon svg-icon-3x"
+                        [inlineSVG]="'./assets/media/svg/icons/Map/Position.svg'"
+                ></span>
+              </div>
+              <div class="wizard-label">
+                <div class="wizard-title">درج توضیحات</div>
+                <div class="wizard-desc">توضیحات و فایل های مرتبط به مشکل شما</div>
+              </div>
+            </div>
+          </a>
+          <a class="wizard-step" href="javascript:;" data-wizard-type="step">
+            <div class="wizard-wrapper">
+              <div class="wizard-icon">
+                <span
+                        class="svg-icon svg-icon-3x"
+                        [inlineSVG]="
+                    './assets/media/svg/icons/Shopping/Credit-card.svg'
+                  "
+                ></span>
+              </div>
+              <div class="wizard-label">
+                <div class="wizard-title">پیش فاکتور</div>
+                <div class="wizard-desc">مشاهده پیش فاکتور و ثبت نهایی</div>
+              </div>
             </div>
           </a>
         </div>
+        <!--end: Form Wizard Nav -->
       </div>
-      <!--end: Form Wizard Nav -->
-      <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
-        <div class="col-xl-12 col-xxl-7">
-          <!--begin: Form Wizard Form-->
-          <form class="form" id="kt_form">
-            <!--begin: Form Wizard Step 1-->
-            <div
-              class="pb-5"
-              data-wizard-type="step-content"
-              data-wizard-state="current"
-            >
-              <div class="mb-10 font-weight-bold text-dark">
-                موقعیت جغرافیایی فعلی خود را ثبت نمایید
-              </div>
-              <div class="form-group">
-                <label>آدرس</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="address1"
-                  [(ngModel)]="model.address1"
-                  placeholder="Address Line 1"
-                  value="Address Line 1"
-                />
-                <span class="form-text text-muted"
-                  >آدرس دقیق خود را وارد نمایید</span
-                >
-              </div>
-              <div class="row">
-                <div class="col-xl-6">
-                  <div class="form-group">
-                    <label>کد پستی</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="postcode"
-                      [(ngModel)]="model.postcode"
-                      placeholder="Postcode"
-                      value="3000"
-                    />
-                    <span class="form-text text-muted"
-                      >کد پستی خود را وارد نمایید</span
-                    >
+      <div class="wizard-body py-8 px-8 py-lg-20 px-lg-10">
+        <!--begin: Wizard Form-->
+        <div class="row">
+          <div class="offset-xxl-2 col-xxl-8">
+            <!--begin: Form Wizard Form-->
+            <form class="form" id="kt_form">
+              <!--begin: Form Wizard Step 2-->
+              <div class="pb-5" data-wizard-type="step-content">
+                <h4 class="mb-10 font-weight-bold text-dark">
+                  موقعیت مکانی فعلی خود را ثبت نمایید
+                </h4>
+                <div class="row">
+                  <div class="col-xl-12">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12946.445548459633!2d51.40983942155892!3d35.784921239661365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e065f64c56fc1%3A0x885ddc230f584004!2sAmaniyeh%2C%20District%203%2C%20Tehran%2C%20Tehran%20Province%2C%20Iran!5e0!3m2!1sen!2sus!4v1627408513361!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                   </div>
                 </div>
-                <div class="col-xl-6">
-                  <div class="form-group">
-                    <label>شهر</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="city"
-                      [(ngModel)]="model.city"
-                      placeholder="City"
-                      value="Melbourne"
-                    />
-                    <span class="form-text text-muted"
-                      >شهر خود را وارد نمایید</span
-                    >
+                <div class="row">
+                  <div class="col-xl-6">
+                    <div class="form-group">
+                      <label>کد پستی</label>
+                      <input
+                              type="text"
+                              class="form-control"
+                              name="postcode"
+                              [(ngModel)]="model.postcode"
+                              placeholder="Postcode"
+                              value="3000"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-xl-6">
+                    <div class="form-group">
+                      <label>شهر</label>
+                      <input
+                              type="text"
+                              class="form-control"
+                              name="city"
+                              [(ngModel)]="model.city"
+                              placeholder="City"
+                              value="Melbourne"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-xl-6">
-                  <div class="form-group">
-                    <label>استان</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="state"
-                      [(ngModel)]="model.state"
-                      placeholder="State"
-                      value="VIC"
-                    />
+                <div class="row">
+                  <div class="col-xl-6">
+                    <div class="form-group">
+                      <label>استان</label>
+                      <input
+                              type="text"
+                              class="form-control"
+                              name="state"
+                              [(ngModel)]="model.state"
+                              placeholder="State"
+                              value="VIC"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!--end: Form Wizard Step 1-->
+              <!--end: Form Wizard Step 2-->
 
-            <!--begin: Form Wizard Step 3-->
-            <div class="pb-5" data-wizard-type="step-content">
-              <div class="mb-10 font-weight-bold text-dark">
-                جزئیات درخواست را انتخاب نمایید
+              <!--begin: Form Wizard Step 3-->
+              <div class="pb-5" data-wizard-type="step-content">
+                <h4 class="mb-10 font-weight-bold text-dark">
+                  نوع متخصص را انتخاب نمایید
+                </h4>
+                <div class="form-group">
+                  <label>نوع متخصص</label>
+                  <mat-select placeholder="انتخاب نمایید" multiple>
+                    <mat-option [value]="0">کارشناس حقوقی</mat-option>
+                    <mat-option [value]="1">کارشناس رسمی دادگستری</mat-option>
+                    <mat-option [value]="2">کارآموز وکالت کانون وکلای دادگستری</mat-option>
+                    <mat-option [value]="3">کارآموز وکالت مرکز وکلای قوه قضائیه</mat-option>
+                    <mat-option [value]="4">وکیل پایه یک دادگستری کانون وکلا</mat-option>
+                    <mat-option [value]="5">وکیل پایه یک دادگستری مرکز وکلا</mat-option>
+                    <mat-option [value]="6">وکیل پایه دو دادگستری مرکز وکلا</mat-option>
+                  </mat-select>
+                </div>
+                <div class="form-group">
+                  <label>انتخاب جنسیت</label>
+                  <select
+                          name="gender"
+                          class="form-control"
+                  >
+                    <option value="-1" selected>...</option>
+                    <option value="a">خانم</option>
+                    <option value="b">آقا</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>موضوع مشاوره</label>
+                  <select
+                          name="subject"
+                          class="form-control"
+                  >
+                    <option value="-1" selected>...</option>
+                    <option value="0">اسناد رسمی</option>
+                    <option value="1">بین الملل</option>
+                    <option value="2">بیمه</option>
+                    <option value="3">نظام وظیفه</option>
+                    <option value="4">داوری</option>
+                    <option value="5">ملکی</option>
+                    <option value="6">دیوان عدالت</option>
+                    <option value="7">روابط کار و کارگری</option>
+                    <option value="8">خانواده</option>
+                    <option value="9">انحصار وراثت</option>
+                  </select>
+                </div>
               </div>
-              <div class="form-group">
-                <label>موضوع مشاوره</label>
-                <select
-                  name="delivery"
-                  [(ngModel)]="model.delivery"
-                  class="form-control"
-                >
-                  <option value="">یک نوع را انتخاب نمایید</option>
-                  <option value="overnight" selected>
-                    مشاوره خانواده
-                  </option>
-                  <option value="express">
-                    مشاوره قضائی
-                  </option>
-                  <option value="basic">
-                    سایر
-                  </option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>انتخاب کارشناس</label>
-                <select
-                  name="packaging"
-                  [(ngModel)]="model.packaging"
-                  class="form-control"
-                >
-                  <option value="">کارشناس مورد نظر را انتخاب نمایید</option>
-                  <option value="regular" selected>نزدیکترین کارشناس</option>
-                  <option value="oversized">کارشناس در دسترس</option>
-                  <option value="fragile">کارشناس دلخواه</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>انتخاب زمان مشاوره</label>
-                <select
-                  name="preferreddelivery"
-                  [(ngModel)]="model.preferreddelivery"
-                  class="form-control"
-                >
-                  <option value="">مدت مشاوره را انتخاب نمایید</option>
-                  <option value="morning" selected>
-                    تا 15 دقیقه
-                  </option>
-                  <option value="afternoon">
-                    15 تا 30 دقیقه
-                  </option>
-                  <option value="evening">
-                    بیشتر از 30 دقیقه
-                  </option>
-                </select>
-              </div>
-            </div>
-            <!--end: Form Wizard Step 3-->
+              <!--end: Form Wizard Step 3-->
 
-            <!--begin: Form Wizard Step 5-->
-            <div class="pb-5" data-wizard-type="step-content">
-              <h4 class="mb-10 font-weight-bold text-dark">
-                بازبینی و ثبت درخواست
-              </h4>
-              <div class="border-bottom mb-5 pb-5">
-                <div class="font-weight-bolder mb-3">آدرس فعلی:</div>
-                <div class="line-height-xl">
-                  تهران
+              <!--begin: Form Wizard Step 4-->
+              <div
+                      class="pb-5"
+                      data-wizard-type="step-content"
+                      data-wizard-state="current"
+              >
+                <h4 class="mb-10 font-weight-bold text-dark">
+                  رزرو وقت مشاوره
+                </h4>
+                <div class="kt-form__section kt-form__section--first">
+                  <div class="kt-wizard-v2__form">
+                    <div class="row">
+                      <div class="col-xl-6">
+                        <div class="form-group">
+                          <label>
+                            <div class="symbol symbol-100 symbol-xxl-100 mr-5 align-self-start align-self-xxl-center">
+                              <div class="symbol-label" [style.backgroundImage]="'url(assets/media/users/photo1.jpg)'"></div>
+                            </div>
+                          </label>
+                          <input style="text-align: center;"
+                                 type="text"
+                                 class="form-control bg-light-success"
+                                 name="fname"
+                                 placeholder="نام مشاور"
+                                 value="احسان مومنی نسب - وکیل پایه یک"
+                                 readonly disabled
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xl-6">
+                        <div class="form-group">
+                          <label>مدت زمان مشاوره</label>
+                          <select
+                                  name="duration"
+                                  class="form-control"
+                          >
+                            <option value="-1" selected>انتخاب نمایید</option>
+                            <option value="0">15 دقیقه</option>
+                            <option value="1">30 دقیقه</option>
+                            <option value="2">45 دقیقه</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="border-bottom mb-5 pb-5">
-                <div class="font-weight-bolder mb-3">مشخصات مشاور:</div>
-                <div class="line-height-xl">
-                  نزدیک ترین مشاور
-                  <br />
-                  15 تا 30 دقیقه
-                </div>
-              </div>
-              <div class="border-bottom mb-5 pb-5">
-                <div class="font-weight-bolder mb-3">
-                  موضوع مشاوره:
-                </div>
-                <div class="line-height-xl">
-                  خانواده
-                </div>
-              </div>
-            </div>
-            <!--end: Form Wizard Step 5-->
+              <!--end: Form Wizard Step 4-->
 
-            <!--begin: Form Actions -->
-            <div class="d-flex justify-content-between border-top pt-10">
-              <div class="mr-2">
-                <div
-                  class="btn btn-light-primary font-weight-bold text-uppercase px-9 py-4"
-                  data-wizard-type="action-prev"
-                >
-                  مرحله قبل
+              <!--begin: Form Wizard Step 5-->
+              <div class="pb-5" data-wizard-type="step-content">
+                <h4 class="mb-10 font-weight-bold text-dark">
+                  درج توضیحات
+                </h4>
+                <div class="form-group">
+                  <label>لطفا مشکل خود را در حداقل 20 کاراکتر توضیح دهید.</label>
+                  <textarea class="form-control" rows="4"></textarea>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xl-11">
+                    <input type="text" class="form-control" placeholder="آپلود فایل"/>
+                  </div>
+                  <label class="btn btn-icon btn-white btn-hover-text-primary btn-shadow"
+                         data-action="change"
+                         data-toggle="tooltip"
+                         title="افزودن تصویر"
+                         data-original-title="Change avatar"
+                  >
+                    <i class="fa fa-paperclip icon text-primary"></i>
+                    <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg" style="display: none;"/>
+                  </label>
                 </div>
               </div>
-              <div>
-                <div
-                  (click)="onSubmit()"
-                  class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
-                  data-wizard-type="action-submit"
-                >
-                  ثبت درخواست
+              <!--end: Form Wizard Step 5-->
+
+              <!--begin: Form Wizard Step 6-->
+              <div class="pb-5" data-wizard-type="step-content">
+                <h4 class="mb-10 font-weight-bold text-dark">
+                  مشخصات سفارش شما
+                </h4>
+                <div class="row">
+                  <div class="col-xl-6">
+                    <div class="form-group">
+                      <label>نوع سفارش</label>
+                      <input
+                              type="text"
+                              class="form-control bg-light-primary"
+                              name="ccname"
+                              placeholder="Card Name"
+                              value="مشاوره تلفنی"
+                              readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="col-xl-6">
+                    <div class="form-group">
+                      <label>موضوع مشاوره</label>
+                      <input
+                              type="text"
+                              class="form-control bg-light-primary"
+                              name="ccnumber"
+                              placeholder="Card Number"
+                              value="خانواده"
+                              readonly
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div
-                  class="btn btn-primary font-weight-bold text-uppercase px-9 py-4"
-                  data-wizard-type="action-next"
-                >
-                  مرحله بعد
+                <div class="row">
+                  <div class="col-xl-6">
+                    <div class="form-group">
+                      <label>مدت زمان</label>
+                      <input
+                              type="text"
+                              class="form-control bg-light-primary"
+                              name="ccmonth"
+                              placeholder="Card Expiry Month"
+                              value="30 دقیقه"
+                              readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="col-xl-6">
+                    <div class="form-group">
+                      <label>شماره پیش فاکتور</label>
+                      <input
+                              type="text"
+                              class="form-control bg-light-primary"
+                              name="ccmonth"
+                              placeholder="Card Expiry Month"
+                              value="301524-2356"
+                              readonly
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-6">
+                    <div class="form-group">
+                      <label>مشاور</label>
+                      <input
+                              type="text"
+                              class="form-control bg-light-primary"
+                              name="ccmonth"
+                              placeholder="Card Expiry Month"
+                              value="احسان مومنی نسب"
+                              readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="col-xl-6">
+                    <div class="form-group">
+                      <label>مبلغ قابل پرداخت</label>
+                      <input  style="font-weight: bold; border-width: thick;"
+                              type="text"
+                              class="form-control border border-primary"
+                              name="ccmonth"
+                              placeholder="Card Expiry Month"
+                              value="50,000 تومان"
+                              readonly
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!--end: Form Actions -->
-          </form>
-          <!--end: Form Wizard Form-->
+              <!--end: Form Wizard Step 6-->
+
+              <!--begin: Form Actions -->
+              <div class="d-flex justify-content-between border-top pt-10">
+                <div class="mr-2">
+                  <div
+                          class="btn btn-light-primary font-weight-bold text-uppercase px-9 py-4"
+                          data-wizard-type="action-prev"
+                  >
+                    مرحله قبل
+                  </div>
+                </div>
+                <div>
+                  <div
+                          (click)="onSubmit()"
+                          class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
+                          data-wizard-type="action-submit"
+                  >
+                    ثبت نهایی و پرداخت
+                  </div>
+                  <div
+                          class="btn btn-primary font-weight-bold text-uppercase px-9 py-4"
+                          data-wizard-type="action-next"
+                  >
+                    مرحله بعد
+                  </div>
+                </div>
+              </div>
+              <!--end: Form Actions -->
+            </form>
+            <!--end: Form Wizard Form-->
+          </div>
         </div>
       </div>
     </div>

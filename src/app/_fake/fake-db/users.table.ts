@@ -98,8 +98,8 @@ export class UsersTable {
       },
       address: {
         addressLine: '3487  Ingram Road',
-        city: 'Greensboro',
-        state: 'North Carolina',
+        city: 'کرج',
+        state: 'البرز',
         postCode: '27409',
       },
       socialNetworks: {
@@ -152,8 +152,8 @@ export class UsersTable {
       },
       address: {
         addressLine: '1467  Griffin Street',
-        city: 'Phoenix',
-        state: 'Arizona',
+        city: 'دماوند',
+        state: 'تهران',
         postCode: '85012',
       },
       socialNetworks: {
