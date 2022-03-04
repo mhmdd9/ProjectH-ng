@@ -29,17 +29,21 @@ import { DeleteSpecsModalComponent } from './products/product-edit/specification
 import { FetchSpecsModalComponent } from './products/product-edit/specifications/fetch-specs-modal/fetch-specs-modal.component';
 import { EditRemarkModalComponent } from './products/product-edit/remarks/edit-remark-modal/edit-remark-modal.component';
 import { EditSpecModalComponent } from './products/product-edit/specifications/edit-spec-modal/edit-spec-modal.component';
+import { ExpertInfoModalComponent } from './customers/components/expert-info-modal/expert-info-modal.component';
+import { ConfirmExpertModalComponent } from './customers/components/confirm-expert-modal/confirm-expert-modal.component';
 
 @NgModule({
   declarations: [
     CustomersComponent,
     ProductsComponent,
     ECommerceComponent,
+    ConfirmExpertModalComponent,
     DeleteCustomerModalComponent,
     DeleteCustomersModalComponent,
     FetchCustomersModalComponent,
     UpdateCustomersStatusModalComponent,
     EditCustomerModalComponent,
+    ExpertInfoModalComponent,
     DeleteProductModalComponent,
     DeleteProductsModalComponent,
     UpdateProductsStatusModalComponent,

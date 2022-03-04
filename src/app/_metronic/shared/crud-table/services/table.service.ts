@@ -1,3 +1,4 @@
+// import { environment } from './../../../../../environments/environment.prod';
 // tslint:disable:variable-name
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, Subscription } from 'rxjs';
@@ -98,7 +99,7 @@ export abstract class TableService<T> {
   getItemById(id: number): Observable<BaseModel> {
     this._isLoading$.next(true);
     this._errorMessage.next('');
-    const url = `${this.API_URL}/${id}`;
+    const url = `${environment.baseUrl}/user/experts/get-info/${id}`;
     return this.http.get<BaseModel>(url).pipe(
       catchError(err => {
         this._errorMessage.next(err);

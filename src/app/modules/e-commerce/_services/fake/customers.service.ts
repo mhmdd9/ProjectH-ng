@@ -21,7 +21,7 @@ const DEFAULT_STATE: ITableState = {
   providedIn: 'root'
 })
 export class CustomersService extends TableService<Customer> implements OnDestroy {
-  API_URL = `${environment.apiUrl}/customers`;
+  API_URL =`${environment.baseUrl}/user/experts/find-all/`;
   constructor(@Inject(HttpClient) http) {
     super(http);
   }
@@ -38,6 +38,15 @@ export class CustomersService extends TableService<Customer> implements OnDestro
         return result;
       })
     );
+  }
+
+  confirmExpert(confirmationData:{
+      confirmed:string,
+      expertId: number,
+      operatorId: number,
+      reason: string
+  }){
+    return this.http.post(`${environment.baseUrl}/user/experts/confirmation`, confirmationData);
   }
 
   deleteItems(ids: number[] = []): Observable<any> {
@@ -68,5 +77,14 @@ export class CustomersService extends TableService<Customer> implements OnDestro
 
   ngOnDestroy() {
     this.subscriptions.forEach(sb => sb.unsubscribe());
+  }
+
+
+  getAcceptingProvinces(): Observable<any> {
+    return this.http.get(`${environment.baseUrl}/core/base-info/find-all/by-parent-code/10`);
+  }
+  
+  getAcceptingWorkScopes(): Observable<any> {
+    return this.http.get(`${environment.baseUrl}/core/base-info/find-all/by-parent-code/100`);
   }
 }

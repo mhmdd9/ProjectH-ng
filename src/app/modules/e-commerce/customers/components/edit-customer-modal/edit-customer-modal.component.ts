@@ -12,13 +12,17 @@ const EMPTY_CUSTOMER: Customer = {
   firstName: '',
   lastName: '',
   email: '',
-  userName: '',
+  phoneNumber: '',
   gender: 'Female',
-  status: 2,
-  dob: undefined,
-  dateOfBbirth: '',
-  ipAddress: '251.237.126.210',
-  type: 2
+  yearOfBirth: '',
+  placeOfBirth: '',
+  nationalCode: '',
+  isActive: false,
+  confirmationStatus: '',
+  dateCreated:'',
+  imageUrl:'',
+  username: '',
+  status:0
 };
 
 @Component({
@@ -37,6 +41,29 @@ export class EditCustomerModalComponent implements OnInit, OnDestroy {
   isLoading$;
   customer: Customer;
   formGroup: FormGroup;
+  formGroup2: FormGroup;
+  formGroup3: FormGroup;
+  formGroup4: FormGroup;
+  formGroup5: FormGroup;
+  licenseTypes = [
+    { title: "کانون وکلا ", value: 'kanoonVokala' },
+    { title: "قوه قضائیه", value: 'ghoveGhazaeyie'},
+  ];
+  exGrades = [
+    { title: "پایه یک ", value: 'firstGrade' },
+    { title: "کارآموز", value: 'intern' },
+  ];
+  acceptingCasesTypes= [
+    { title: "حقوقی ", value: 'legal' },
+    { title: "جنایی", value: 'criminal' },
+    { title: "هر دو", value: 'both' },
+  ];
+  grades = [
+    {title: 'کارشناسی ', value: 'bachelor'},
+    {title: 'کارشناسی ارشد', value: 'master'},
+    {title: 'دکترا', value: 'phd'},
+];
+  activeTabId = 1;
   private subscriptions: Subscription[] = [];
   constructor(
     private customersService: CustomersService,
@@ -69,14 +96,50 @@ export class EditCustomerModalComponent implements OnInit, OnDestroy {
 
   loadForm() {
     this.formGroup = this.fb.group({
-      firstName: [this.customer.firstName, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(100)])],
-      lastName: [this.customer.lastName, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(100)])],
-      email: [this.customer.email, Validators.compose([Validators.required, Validators.email])],
-      dob: [this.customer.dateOfBbirth, Validators.compose([Validators.nullValidator])],
-      userName: [this.customer.userName, Validators.compose([Validators.required])],
-      gender: [this.customer.gender, Validators.compose([Validators.required])],
-      ipAddress: [this.customer.ipAddress],
-      type: [this.customer.type, Validators.compose([Validators.required])]
+      firstName: [{value:this.customer.firstName, disabled: true}],
+      lastName: [{value:this.customer.lastName, disabled: true}],
+      nationalCode: [{value:this.customer.email, disabled: true}],
+      placeOfBirth: [{value:this.customer.email, disabled: true}],
+      yearOfBirth: [{value:this.customer.yearOfBirth, disabled: true}],
+      phoneNumber: [{value:this.customer.phoneNumber, disabled: true}],
+      gender: [{value:this.customer.gender, disabled: true}],
+      imageUrl: [{value:this.customer.phoneNumber, disabled: true}]
+    });
+    this.formGroup2 = this.fb.group({
+      province: [{value:this.customer.firstName, disabled: true}],
+      city: [{value:this.customer.lastName, disabled: true}],
+      homeAddress: [{value:this.customer.email, disabled: true}],
+      homePostalCode: [{value:this.customer.yearOfBirth, disabled: true}],
+      homePhone: [{value:this.customer.phoneNumber, disabled: true}],
+      workAddress: [{value:this.customer.gender, disabled: true}],
+      workPostalCode: [{value:this.customer.phoneNumber, disabled: true}],
+      workPhone: [{value:this.customer.phoneNumber, disabled: true}],
+      email: [{value:this.customer.phoneNumber, disabled: true}],
+      id: [{value:this.customer.phoneNumber, disabled: true}],
+      website: [{value:this.customer.phoneNumber, disabled: true}]
+    });
+    this.formGroup3 = this.fb.group({
+      licenseNo: [{value:this.customer.firstName, disabled: true}],
+      licenseType: [{value:this.customer.lastName, disabled: true}],
+      grade: [{value:this.customer.email, disabled: true}],
+      acceptingCasesType: [{value:this.customer.yearOfBirth, disabled: true}],
+      acceptingProvinces: [{value:this.customer.phoneNumber, disabled: true}],
+      acceptingWorkScopes: [{value:this.customer.gender, disabled: true}],
+    });
+    this.formGroup4 = this.fb.group({
+      eduGrade: [{value:this.customer.firstName, disabled: true}],
+      endYear: [{value:this.customer.lastName, disabled: true}],
+      fieldOfStudy: [{value:this.customer.email, disabled: true}],
+      isStudying: [{value:this.customer.yearOfBirth, disabled: true}],
+      startingYear: [{value:this.customer.phoneNumber, disabled: true}],
+      universityName: [{value:this.customer.gender, disabled: true}]
+    });
+    this.formGroup5 = this.fb.group({
+      instituteName: [{value:this.customer.firstName, disabled: true}],
+      jobPosition: [{value:this.customer.lastName, disabled: true}],
+      startingYear: [{value:this.customer.email, disabled: true}],
+      endYear: [{value:this.customer.yearOfBirth, disabled: true}],
+      working: [{value:this.customer.phoneNumber, disabled: true}]
     });
   }
 
@@ -117,14 +180,14 @@ export class EditCustomerModalComponent implements OnInit, OnDestroy {
 
   private prepareCustomer() {
     const formData = this.formGroup.value;
-    this.customer.dob = new Date(formData.dob);
+    this.customer.dateCreated = new Date(formData.dob).toString();
     this.customer.email = formData.email;
     this.customer.firstName = formData.firstName;
-    this.customer.dateOfBbirth = formData.dob;
-    this.customer.ipAddress = formData.ipAddress;
+    this.customer.yearOfBirth = formData.dob;
+    this.customer.phoneNumber = formData.ipAddress;
     this.customer.lastName = formData.lastName;
-    this.customer.type = +formData.type;
-    this.customer.userName = formData.userName;
+    this.customer.status = +formData.type;
+    this.customer.nationalCode = formData.userName;
   }
 
   ngOnDestroy(): void {
@@ -150,5 +213,17 @@ export class EditCustomerModalComponent implements OnInit, OnDestroy {
   isControlTouched(controlName): boolean {
     const control = this.formGroup.controls[controlName];
     return control.dirty || control.touched;
+  }
+
+  setActiveTab(tabId: number) {
+    this.activeTabId = tabId;
+  }
+
+  getActiveTabCSSClass(tabId: number) {
+    if (tabId !== this.activeTabId) {
+      return '';
+    }
+
+    return 'active';
   }
 }

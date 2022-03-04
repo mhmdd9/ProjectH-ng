@@ -1,4 +1,3 @@
-// tslint:disable:no-string-literal
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -25,6 +24,12 @@ import { DeleteCustomersModalComponent } from './components/delete-customers-mod
 import { UpdateCustomersStatusModalComponent } from './components/update-customers-status-modal/update-customers-status-modal.component';
 import { FetchCustomersModalComponent } from './components/fetch-customers-modal/fetch-customers-modal.component';
 import { EditCustomerModalComponent } from './components/edit-customer-modal/edit-customer-modal.component';
+import { ExpertInfoModalComponent } from './components/expert-info-modal/expert-info-modal.component';
+import { ExpertInfoService } from './components/services/expert-info.service';
+import { NINE } from '@angular/cdk/keycodes';
+import { ConfirmExpertModalComponent } from './components/confirm-expert-modal/confirm-expert-modal.component';
+
+
 
 @Component({
   selector: 'app-customers',
@@ -52,18 +57,19 @@ export class CustomersComponent
   isLoading: boolean;
   filterGroup: FormGroup;
   searchGroup: FormGroup;
-  private subscriptions: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
+  private subscriptions: Subscription[] = []; 
+  // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
 
   constructor(
     private fb: FormBuilder,
     private modalService: NgbModal,
-    public customerService: CustomersService
-  ) { }
+    public customerService: CustomersService,private api:ExpertInfoService) { }
 
   // angular lifecircle hooks
   ngOnInit(): void {
     this.filterForm();
     this.searchForm();
+    this.getData();
     this.customerService.fetch();
     this.grouping = this.customerService.grouping;
     this.paginator = this.customerService.paginator;
@@ -74,6 +80,13 @@ export class CustomersComponent
 
   ngOnDestroy() {
     this.subscriptions.forEach((sb) => sb.unsubscribe());
+  }
+
+  getData(){
+  this.api.getExperts().subscribe(res=>{
+    console.log(res);
+    
+  });
   }
 
   // filtration
@@ -153,12 +166,44 @@ export class CustomersComponent
   }
 
   edit(id: number) {
-    const modalRef = this.modalService.open(EditCustomerModalComponent, { size: 'xl' });
+    const modalRef = this.modalService.open(ExpertInfoModalComponent, { size: 'xl' });
     modalRef.componentInstance.id = id;
     modalRef.result.then(() =>
       this.customerService.fetch(),
       () => { }
     );
+  }
+
+  showDetail(id: number) {
+    const modalRef = this.modalService.open(ExpertInfoModalComponent, { size: 'xl' });
+    modalRef.componentInstance.id = id;
+    modalRef.result.then(() =>
+      this.customerService.fetch(),
+      () => { }
+    );
+  } 
+
+
+  showConfirm(id: number) {
+    const modalRef = this.modalService.open(ConfirmExpertModalComponent, { size: 'xl' });
+    modalRef.componentInstance.id = id;
+    modalRef.result.then(() =>
+      this.customerService.fetch(),
+      () => { }
+    );
+  } 
+
+
+  confirm(id){
+    this.customerService.confirmExpert({
+      confirmed:'confirmed',
+      expertId:id,
+      operatorId:null,
+      reason:"کارشناس تایید شد"
+    }).subscribe(res=>{
+      console.log(res);
+      
+    });
   }
 
   delete(id: number) {

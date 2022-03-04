@@ -4,7 +4,7 @@
       <ng-container *ngIf="customer">
         <!-- <ng-container *ngIf="customer.id">Edit</ng-container>
         <ng-container *ngIf="!customer.id">Create</ng-container> -->
-          کارشناس
+        کارشناس
         <ng-container *ngIf="customer.id"
           >'{{ customer.firstName }} {{ customer.lastName }}'</ng-container
         >
@@ -92,7 +92,6 @@
               [formGroup]="formGroup"
             >
               <div class="form-group row">
-
                 <div class="col-lg-4">
                   <label class="form-label">نام</label>
                   <input
@@ -125,11 +124,9 @@
                     formControlName="nationalCode"
                   />
                 </div>
-
               </div>
 
               <div class="form-group row">
-
                 <div class="col-lg-4">
                   <label class="form-label">محل تولد</label>
                   <input
@@ -157,21 +154,19 @@
 
                 <div class="col-lg-4">
                   <label>جنسیت</label>
-                  <select
+                  <select 
                     class="form-control form-control-lg form-control-solid"
                     name="gender"
                     formControlName="gender"
                   >
-                    <option value="Female">زن</option>
-                    <option value="Male">مرد</option>
+                    <option value="female">زن</option>
+                    <option value="male">مرد</option>
                   </select>
                   <!-- <div class="feedback">Please select <b>Gender</b></div> -->
                 </div>
-
               </div>
 
               <div class="form-group row">
-
                 <div class="col-lg-4">
                   <label class="form-label">شماره تلفن</label>
                   <input
@@ -181,9 +176,7 @@
                     autocomplete="off"
                     formControlName="phoneNumber"
                   />
-                  
                 </div>
-
               </div>
             </form>
           </div>
@@ -197,7 +190,6 @@
               [formGroup]="formGroup2"
             >
               <div class="form-group row">
-
                 <div class="col-lg-4">
                   <label class="form-label">استان محل سکونت</label>
                   <input
@@ -232,10 +224,8 @@
                     formControlName="homeAddress"
                   />
                 </div>
-
               </div>
               <div class="form-group row">
-
                 <div class="col-lg-4">
                   <label class="form-label">کدپستی</label>
                   <input
@@ -274,11 +264,9 @@
                     />
                   </div>
                 </div>
-
               </div>
 
               <div class="form-group row">
-
                 <div class="col-lg-4">
                   <label class="form-label">کدپستی محل کار</label>
                   <input
@@ -302,7 +290,6 @@
                       readonly="true"
                     />
                   </div>
-                  
                 </div>
 
                 <div class="col-lg-4">
@@ -333,10 +320,8 @@
                       readonly="true"
                     />
                   </div>
-                
                 </div>
               </div>
-              
             </form>
           </div>
           <!-- end::Subheader -->
@@ -349,7 +334,6 @@
               [formGroup]="formGroup3"
             >
               <div class="form-group row">
-
                 <div class="col-lg-4">
                   <label class="form-label">شماره پروانه</label>
                   <input
@@ -365,11 +349,11 @@
                   <label>نوع پروانه</label>
                   <select
                     class="form-control form-control-lg form-control-solid"
-                    name="gender"
+                    name="licenseType"
                     formControlName="licenseType"
                   >
-                    <option value="Female">زن</option>
-                    <option value="Male">مرد</option>
+                    <option value="kanoonVokala">کانون وکلا</option>
+                    <option value="ghoveGhazaeyie">قوه قضائیه</option>
                   </select>
                   <!-- <div class="feedback">Please select <b>Gender</b></div> -->
                 </div>
@@ -378,58 +362,58 @@
                   <label>پایه</label>
                   <select
                     class="form-control form-control-lg form-control-solid"
-                    name="gender"
+                    name="grade"
                     formControlName="grade"
                   >
-                    <option value="Female">زن</option>
-                    <option value="Male">مرد</option>
+                    <option value="firstGrade">پایه یک </option>
+                    <option value="intern">کارآموز</option>
                   </select>
                   <!-- <div class="feedback">Please select <b>Gender</b></div> -->
                 </div>
-
               </div>
 
               <div class="form-group row">
-
                 <div class="col-lg-4">
                   <label>نوع پرونده های مورد قبول</label>
-                  <select
+                  <select 
                     class="form-control form-control-lg form-control-solid"
                     name="acceptingCasesType"
                     formControlName="acceptingCasesType"
                   >
-                    <option value="Female">زن</option>
-                    <option value="Male">مرد</option>
+                    <option value="legal"> حقوقی </option>
+                    <option value="criminal"> جنایی </option>
+                    <option value="both"> هر دو </option>
                   </select>
                   <!-- <div class="feedback">Please select <b>Gender</b></div> -->
                 </div>
 
                 <div class="col-lg-4">
                   <label>استان های مورد پذیرش</label>
-                  <select
+                  <select multiple
                     class="form-control form-control-lg form-control-solid"
                     name="acceptingProvinces"
                     formControlName="acceptingProvinces"
                   >
-                    <option value="Female">زن</option>
-                    <option value="Male">مرد</option>
+                  <ng-container *ngFor="let item of acceptingProvincesList">
+                    <option value="{{item.id}}">{{item.title}}</option>
+                  </ng-container>
                   </select>
                   <!-- <div class="feedback">Please select <b>Gender</b></div> -->
                 </div>
 
                 <div class="col-lg-4">
                   <label>حوزه های کاری</label>
-                  <select
+                  <select multiple
                     class="form-control form-control-lg form-control-solid"
                     name="acceptingWorkScopes"
                     formControlName="acceptingWorkScopes"
                   >
-                    <option value="Female">زن</option>
-                    <option value="Male">مرد</option>
+                  <ng-container *ngFor="let item of acceptingWorkScopesList">
+                    <option value="{{item.id}}">{{item.title}}</option>
+                  </ng-container>
                   </select>
                   <!-- <div class="feedback">Please select <b>Gender</b></div> -->
                 </div>
-
               </div>
             </form>
           </div>
@@ -437,13 +421,24 @@
 
           <!-- begin::Aside -->
           <div class="tab-pane" [ngClass]="getActiveTabCSSClass(4)">
+            <div class="row" >
+              <div class="col-sm-4 mb-2  input-group-solid" *ngFor="let ei of educInfos">
+                <!-- <div (click)="setEduForm(ei)"
+                  ></div
+                > -->
+                  <input (click)="setEduForm(ei)"
+                    type="text" value="{{ ei.grade }} - {{ ei.fieldOfStudy }} - {{ ei.universityName }}"
+                    class=" bg-info text-light form-control form-control-lg form-control-solid"
+                    readonly="true"
+                  />
+              </div>
+            </div>
             <form
               action="#"
               class="form form-label-right"
               [formGroup]="formGroup4"
             >
               <div class="form-group row">
-
                 <div class="col-lg-4">
                   <label class="form-label">نام دانشگاه</label>
                   <input
@@ -472,16 +467,15 @@
                     name="eduGrade"
                     formControlName="eduGrade"
                   >
-                    <option value="Female">زن</option>
-                    <option value="Male">مرد</option>
+                    <option value="bachelor">کارشناسی</option>
+                    <option value="master">کارشناسی ارشد</option>
+                    <option value="phd">دکترا</option>
                   </select>
                   <!-- <div class="feedback">Please select <b>Gender</b></div> -->
                 </div>
-
               </div>
 
               <div class="form-group row">
-                
                 <div class="col-lg-4">
                   <label class="form-label">سال شروع</label>
                   <input
@@ -507,11 +501,19 @@
                   </div>
                 </div>
 
-                <div class="col-lg-4">
-                  <label>درحال تحصیل</label>
+                <div class="col-lg-4 row align-items-center">
+                  
+                  <div class="col-2 d-flex justify-content-end">
+                    <label class="checkbox checkbox-lg checkbox-inline"> 
+                      <input formControlName="isStudying" type="checkbox" />
+                      <span></span>
+                    </label>
+                  </div>
+                  <p class="col-10 mb-0">درحال تحصیل</p>
+                  
+                  
                   <!-- <div class="feedback">Please select <b>Gender</b></div> -->
                 </div>
-
               </div>
             </form>
           </div>
@@ -519,13 +521,24 @@
 
           <!-- begin::Footer -->
           <div class="tab-pane" [ngClass]="getActiveTabCSSClass(5)">
+            <div class="row" >
+              <div class="col-sm-4 mb-2  input-group-solid" *ngFor="let wr of workResumes">
+                <!-- <div (click)="setEduForm(ei)"
+                  ></div
+                > -->
+                  <input (click)="setWorkForm(wr)"
+                    type="text" value="{{wr.instituteName}} - {{wr.endYear}}"
+                    class=" bg-info text-light form-control form-control-lg form-control-solid"
+                    readonly="true"
+                  />
+              </div>
+            </div>
             <form
               action="#"
               class="form form-label-right"
               [formGroup]="formGroup5"
             >
               <div class="form-group row">
-
                 <div class="col-lg-4">
                   <label class="form-label">نام موسسه</label>
                   <input
@@ -559,10 +572,8 @@
                     formControlName="startingYear"
                   />
                 </div>
-
               </div>
               <div class="form-group row">
-
                 <div class="col-lg-4">
                   <label class="form-label">سال پایان</label>
                   <input
@@ -573,11 +584,20 @@
                     autocomplete="off"
                     formControlName="endYear"
                   />
-                  
                 </div>
 
-                <div class="col-lg-4">
-                  <label>درحال کار</label>
+                <div class="col-lg-4 row align-items-center">
+                  
+                  <div class="col-2 d-flex justify-content-end">
+                    <label class="checkbox checkbox-lg checkbox-inline"> 
+                      <input formControlName="working" type="checkbox" />
+                      <span></span>
+                    </label>
+                  </div>
+                  <p class="col-10 mb-0">مشغول به کار</p>
+                  
+                  
+                  <!-- <div class="feedback">Please select <b>Gender</b></div> -->
                 </div>
               </div>
             </form>
@@ -613,5 +633,4 @@
       </div>
     </ng-container>
   </div>
-
 </div>
