@@ -74,10 +74,10 @@
     <div class="table-responsive angular-bootstrap-table">
       <table class="table table-head-custom table-vertical-center overflow-hidden">
         <thead>
-          <th class="selection-cell-header" data-row-selection="true">
+          <!-- <th class="selection-cell-header" data-row-selection="true">
             <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectAllRows()"
                 [checked]="grouping.checkAreAllRowsSelected()" /><span></span></label>
-          </th>
+          </th> -->
           <th>
             شناسه
             <app-sort-icon column="id" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
@@ -117,12 +117,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let customer of customerService.items$ | async">
-            <td class="selection-cell">
+            <!-- <td class="selection-cell">
               <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectRow(customer.id)"
                   [checked]="grouping.isRowSelected(customer.id)" />
                 <span></span>
               </label>
-            </td>
+            </td> -->
             <td>{{ customer.id }}</td>
             <td>
               <div class="d-flex align-items-center">
