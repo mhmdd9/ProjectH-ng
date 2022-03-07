@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.isLoading$ = this.authService.isLoading$;
     // redirect to home if already logged in
     if (this.authService.currentUserValue) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/pages']);
     }
   }
 
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.initForm();
     // get return url from route parameters or default to '/'
     this.returnUrl =
-        this.route.snapshot.queryParams['returnUrl'.toString()] || '/';
+        this.route.snapshot.queryParams['returnUrl'.toString()] || '/pages';
     }
 
   // convenience getter for easy access to form fields

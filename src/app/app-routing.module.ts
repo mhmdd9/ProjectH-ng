@@ -8,13 +8,20 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
+  
   {
     path: 'error',
     loadChildren: () =>
       import('./modules/errors/errors.module').then((m) => m.ErrorsModule),
   },
+
   {
     path: '',
+    loadChildren: () =>
+      import('./pages/main/main.module').then((m) => m.MainModule),
+  },
+  {
+    path: 'pages',
     canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/layout.module').then((m) => m.LayoutModule),

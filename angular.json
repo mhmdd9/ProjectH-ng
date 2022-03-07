@@ -39,7 +39,14 @@
             ],
             "scripts": [
               "node_modules/apexcharts/dist/apexcharts.min.js",
-              "node_modules/clipboard/dist/clipboard.js"
+              "node_modules/clipboard/dist/clipboard.js",
+              "src/assets/js/main/bootstrap.bundle.min.js",
+              "src/assets/js/main/tiny-slider.js",
+              "src/assets/js/main/tobii.min.js",
+              "src/assets/js/main/feather.min.js",
+              "src/assets/js/main/switcher.js",
+              "src/assets/js/main/plugins.init.js",
+              "src/assets/js/main/app.js"
             ]
           },
           "configurations": {

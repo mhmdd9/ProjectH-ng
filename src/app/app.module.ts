@@ -1,7 +1,9 @@
+import { ErrorInterceptor } from './helpers/error-interceptor/error.interceptor';
+import { JwtInterceptor } from './helpers/jwt/jwt.interceptor';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ClipboardModule } from 'ngx-clipboard';
 import { TranslateModule } from '@ngx-translate/core';
@@ -56,6 +58,8 @@ function appInitializer(authService: AuthService) {
       multi: true,
       deps: [AuthService],
     },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {

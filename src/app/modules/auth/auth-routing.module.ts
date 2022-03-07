@@ -38,18 +38,18 @@ const routes: Routes = [
         path: 'phone-confirmation',
         component: PhoneConfirmationComponent
       },
-      {
-        path: 'registration/user-type',
-        component: UserTypeComponent
-      },
-      {
-        path: 'personal-information',
-        component: PersonalInformationComponent,
-      },
-      {
-        path: 'spec-info',
-        component: SpecInfoComponent,
-      },
+      // {
+      //   path: 'registration/user-type',
+      //   component: UserTypeComponent
+      // },
+      // {
+      //   path: 'personal-information',
+      //   component: PersonalInformationComponent,
+      // },
+      // {
+      //   path: 'spec-info',
+      //   component: SpecInfoComponent,
+      // },
       {
         path: 'logout',
         component: LogoutComponent
