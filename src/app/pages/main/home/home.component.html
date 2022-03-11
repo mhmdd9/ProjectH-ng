@@ -20,7 +20,7 @@
       </a>
     </div>
     <div class="buy-button">
-      <a href="https://www.rtl-theme.com/?p=133270" target="_blank">
+      <a href="javascript:void(0)">
         <div class="btn btn-primary">دریافت برنامه</div>
       </a>
     </div>
@@ -29,12 +29,12 @@
     <div id="navigation">
       <!-- Navigation Menu-->
       <ul class="navigation-menu">
-        <li><a href="/home" class="sub-menu-item">صفحه اصلی </a></li>
+        <li><a [routerLink]="'/home'" class="sub-menu-item">صفحه اصلی </a></li>
         <li>
-          <a href="/about" class="sub-menu-item">درباره ما </a>
+          <a [routerLink]="'/about'" class="sub-menu-item">درباره ما </a>
         </li>
         <li>
-          <a href="/contact-us" class="sub-menu-item">تماس با ما </a>
+          <a [routerLink]="'/contact-us'" class="sub-menu-item">تماس با ما </a>
         </li>
       </ul>
       <!--end navigation menu-->
@@ -59,6 +59,9 @@
           <h1 class="heading mb-3">
             هـنارس
           </h1>
+          <p class="heading mb-3">
+            (نسخه آزمایشی)
+          </p>
           <p class="para-desc text-muted">
             خدمات حقوقی - مشاوره - تنظیم قرارداد
           </p>
@@ -76,7 +79,7 @@
         <div class="classic-app-image position-relative">
           <div class="bg-app-shape position-relative">
             <img
-              src="../../../../assets/images/app/classic01.png"
+              src="../../../../assets/images/app/classic02.png"
               class="img-fluid mover mx-auto d-block"
               alt=""
             />

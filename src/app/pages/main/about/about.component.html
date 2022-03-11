@@ -1,11 +1,11 @@
-<div id="preloader">
+<!--<div id="preloader">-->
     <!-- <div id="status">
         <div class="spinner">
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>
         </div>
     </div> -->
-</div>
+<!--</div>-->
 <!-- Loader -->
 
 <!-- Navbar STart -->
@@ -19,7 +19,7 @@
             </a>
         </div>                 
         <div class="buy-button">
-            <a href="https://www.rtl-theme.com/?p=133270" target="_blank">
+            <a href="#" target="_blank">
                 <div class="btn btn-primary">دریافت برنامه </div>
             </a>
         </div><!--end login button-->
@@ -28,13 +28,13 @@
         <div id="navigation">
             <!-- Navigation Menu-->   
             <ul class="navigation-menu">
-                <li><a href="/home" class="sub-menu-item">صفحه اصلی </a></li>
-        <li>
-          <a href="/about" class="sub-menu-item">درباره ما </a>
-        </li>
-        <li>
-          <a href="/contact-us" class="sub-menu-item">تماس با ما </a>
-        </li>
+                <li><a [routerLink]="'/home'" class="sub-menu-item">صفحه اصلی </a></li>
+                <li>
+                    <a [routerLink]="'/about'" class="sub-menu-item">درباره ما </a>
+                </li>
+                <li>
+                    <a [routerLink]="'/contact-us'" class="sub-menu-item">تماس با ما </a>
+                </li>
             </ul><!--end navigation menu-->
             
         </div><!--end navigation-->
