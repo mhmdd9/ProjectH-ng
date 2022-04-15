@@ -1,7 +1,7 @@
 <!--begin::Brand-->
 <div class="brand flex-column-auto" id="kt_brand" [ngClass]="brandClasses">
   <!--begin::Logo-->
-  <a routerLink="/" class="brand-logo">
+  <a routerLink="/pages/dashboard" class="brand-logo">
     <img alt="Logo" [attr.src]="headerLogo" />
   </a>
   <!--end::Logo-->
@@ -61,7 +61,7 @@
       aria-haspopup="true"
       routerLinkActive="menu-item-active"
     >
-      <a class="menu-link" routerLink="/ecommerce/customers" routerLinkActive="active">
+      <a class="menu-link" routerLink="/pages/ecommerce/customers" routerLinkActive="active">
         <span
           [inlineSVG]="'./assets/media/svg/icons/General/User.svg'"
           cacheSVG="true"

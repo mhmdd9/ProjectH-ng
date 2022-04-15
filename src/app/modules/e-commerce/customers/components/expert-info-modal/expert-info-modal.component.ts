@@ -52,6 +52,7 @@ interface Select {
 export class ExpertInfoModalComponent implements OnInit, OnDestroy {
   @Input() id: number;
   isLoading$;
+  imgurl:string='';
   customer: any;
   formGroup: FormGroup;
   formGroup2: FormGroup;
@@ -196,6 +197,7 @@ export class ExpertInfoModalComponent implements OnInit, OnDestroy {
       startingYear: customer.startingYear,
       universityName:customer.universityName
     });
+    this.imgurl=customer.fileUrl;
   }
   setWorkForm(work){
     console.log(work);

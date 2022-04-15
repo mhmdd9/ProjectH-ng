@@ -20,7 +20,7 @@ export class AboutRoutingModule { }
 @NgModule({
   declarations: [AboutComponent],
   imports: [
-    CommonModule,AboutRoutingModule
+    CommonModule, AboutRoutingModule
   ]
 })
 export class AboutModule { }

@@ -18,6 +18,7 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { SplashScreenModule } from './_metronic/partials/layout/splash-screen/splash-screen.module';
 // #fake-start#
 import { FakeAPIService } from './_fake/fake-api.service';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
@@ -52,6 +53,7 @@ function appInitializer(authService: AuthService) {
     NgbModule,
   ],
   providers: [
+    Location, {provide: LocationStrategy, useClass: HashLocationStrategy},
     {
       provide: APP_INITIALIZER,
       useFactory: appInitializer,

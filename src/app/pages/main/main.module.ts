@@ -22,7 +22,11 @@ const routes: Routes = [
     path: 'contact-us',
     loadChildren: () =>
       import('./contact-us/contact-us.module').then((m) => m.ContactUsModule),
-  }
+  },  {
+    path: 'auth',
+    loadChildren: () =>
+      import('../../modules/auth/auth.module').then((m) => m.AuthModule),
+  },
 ];
 
 @NgModule({
