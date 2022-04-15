@@ -3,7 +3,8 @@ import { Observable } from 'rxjs';
 import { BreadcrumbItemModel } from '../_models/breadcrumb-item.model';
 import { LayoutService } from '../../../../core';
 import { SubheaderService } from '../_services/subheader.service';
-
+import * as moment from 'jalali-moment';
+let todayJalali = moment().locale('fa').format('YYYY/M/D');
 @Component({
   selector: 'app-subheader2',
   templateUrl: './subheader2.component.html',
@@ -17,7 +18,7 @@ export class Subheader2Component implements OnInit {
   title$: Observable<string>;
   breadcrumbs$: Observable<BreadcrumbItemModel[]>;
   description$: Observable<string>;
-
+  today=todayJalali;
   constructor(
     private layout: LayoutService,
     private subheader: SubheaderService

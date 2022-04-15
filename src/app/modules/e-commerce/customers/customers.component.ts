@@ -1,3 +1,4 @@
+import { ExpertLevelModalComponent } from './components/expert-level-modal/expert-level-modal.component';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -193,6 +194,15 @@ export class CustomersComponent
     );
   } 
 
+  
+  showLevel(id: number) {
+    const modalRef = this.modalService.open(ExpertLevelModalComponent, { size: 'xl' });
+    modalRef.componentInstance.id = id;
+    modalRef.result.then(() =>
+      this.customerService.fetch(),
+      () => { }
+    );
+  } 
 
   confirm(id){
     this.customerService.confirmExpert({

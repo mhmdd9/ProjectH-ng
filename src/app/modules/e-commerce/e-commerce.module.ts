@@ -1,6 +1,9 @@
+import { ExpertLevelModalComponent } from './customers/components/expert-level-modal/expert-level-modal.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { MatRadioModule } from '@angular/material/radio';
+
 import { InlineSVGModule } from 'ng-inline-svg';
 import { CustomersComponent } from './customers/customers.component';
 import { ProductsComponent } from './products/products.component';
@@ -58,7 +61,7 @@ import { ConfirmExpertModalComponent } from './customers/components/confirm-expe
     DeleteSpecsModalComponent,
     FetchSpecsModalComponent,
     EditRemarkModalComponent,
-    EditSpecModalComponent,
+    EditSpecModalComponent,ExpertLevelModalComponent
   ],
   imports: [
     CommonModule,
@@ -69,7 +72,7 @@ import { ConfirmExpertModalComponent } from './customers/components/confirm-expe
     InlineSVGModule,
     CRUDTableModule,
     NgbModalModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,MatRadioModule
   ],
   entryComponents: [
     DeleteCustomerModalComponent,
@@ -88,7 +91,7 @@ import { ConfirmExpertModalComponent } from './customers/components/confirm-expe
     DeleteSpecsModalComponent,
     FetchSpecsModalComponent,
     EditRemarkModalComponent,
-    EditSpecModalComponent
+    EditSpecModalComponent,ExpertLevelModalComponent
   ]
 })
 export class ECommerceModule {}

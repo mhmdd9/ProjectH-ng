@@ -11,7 +11,6 @@ import { InlineSVGModule } from 'ng-inline-svg';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthService } from './modules/auth/_services/auth.service';
 import { environment } from 'src/environments/environment';
 // Highlight JS
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
@@ -21,13 +20,6 @@ import { FakeAPIService } from './_fake/fake-api.service';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 // #fake-end#
 
-function appInitializer(authService: AuthService) {
-  return () => {
-    return new Promise((resolve) => {
-      authService.getUserByToken().subscribe().add(resolve);
-    });
-  };
-}
 
 
 @NgModule({
@@ -53,15 +45,9 @@ function appInitializer(authService: AuthService) {
     NgbModule,
   ],
   providers: [
-    Location, {provide: LocationStrategy, useClass: HashLocationStrategy},
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appInitializer,
-      multi: true,
-      deps: [AuthService],
-    },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    Location, {provide: LocationStrategy, useClass: HashLocationStrategy},
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {

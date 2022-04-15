@@ -49,6 +49,11 @@ export class CustomersService extends TableService<Customer> implements OnDestro
     return this.http.post(`${environment.baseUrl}/user/experts/confirmation`, confirmationData);
   }
 
+  submitLevel(expertId,level){
+  return this.http.post(`${environment.baseUrl}/user/experts/set-level/${expertId}/${level}`,{});
+}
+
+
   deleteItems(ids: number[] = []): Observable<any> {
     const tasks$ = [];
     ids.forEach(id => {

@@ -54,7 +54,7 @@
         [ngTemplateOutletContext]="{
           validation: 'required',
           message: 'نام کاربری باید وارد شود',
-          control: loginForm.controls['email']
+          control: loginForm.controls['username']
         }"
       ></ng-container>      
       <ng-container
@@ -62,7 +62,7 @@
         [ngTemplateOutletContext]="{
           validation: 'username',
           message: 'نام کاربری نامعتبر',
-          control: loginForm.controls['email']
+          control: loginForm.controls['username']
         }"
       ></ng-container>
       <ng-container
@@ -70,7 +70,7 @@
         [ngTemplateOutletContext]="{
           validation: 'minLength',
           message: 'نام کاربری باید حداقل 3 کاراکتر داشته باشد',
-          control: loginForm.controls['email']
+          control: loginForm.controls['username']
         }"
       ></ng-container>
       <ng-container
