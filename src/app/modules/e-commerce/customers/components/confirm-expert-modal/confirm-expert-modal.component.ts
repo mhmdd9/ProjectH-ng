@@ -26,7 +26,7 @@ export class ConfirmExpertModalComponent implements OnInit, OnDestroy {
 
   confirm(){
     this.customerService.confirmExpert({
-      confirmed:"notConfirmed",
+      confirmed:false,
       expertId:this.id,
       operatorId:null,
       reason:this.formGroup.controls.reason.value

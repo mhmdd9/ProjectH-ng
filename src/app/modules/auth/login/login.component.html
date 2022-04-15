@@ -40,28 +40,28 @@
 
     <!--begin::Form group-->
     <div class="form-group">
-      <label class="font-size-h6 font-weight-bolder text-dark">ایمیل</label>
+      <label class="font-size-h6 font-weight-bolder text-dark">نام کاربری</label>
       <input
         class="form-control form-control-solid h-auto py-7 px-6 rounded-lg"
-        type="email"
-        name="email"
-        formControlName="email"
+        type="text"
+        name="username"
+        formControlName="username"
         autocomplete="off"
-        [ngClass]="{ 'is-invalid': loginForm.controls['email'].invalid }"
+        [ngClass]="{ 'is-invalid': loginForm.controls['username'].invalid }"
       />
       <ng-container
         [ngTemplateOutlet]="formError"
         [ngTemplateOutletContext]="{
           validation: 'required',
-          message: 'ایمیل باید وارد شود',
+          message: 'نام کاربری باید وارد شود',
           control: loginForm.controls['email']
         }"
       ></ng-container>      
       <ng-container
         [ngTemplateOutlet]="formError"
         [ngTemplateOutletContext]="{
-          validation: 'email',
-          message: 'ایمیل نامعتبر',
+          validation: 'username',
+          message: 'نام کاربری نامعتبر',
           control: loginForm.controls['email']
         }"
       ></ng-container>
@@ -69,7 +69,7 @@
         [ngTemplateOutlet]="formError"
         [ngTemplateOutletContext]="{
           validation: 'minLength',
-          message: 'ایمیل باید حداقل 3 کاراکتر داشته باشد',
+          message: 'نام کاربری باید حداقل 3 کاراکتر داشته باشد',
           control: loginForm.controls['email']
         }"
       ></ng-container>
@@ -78,7 +78,7 @@
         [ngTemplateOutletContext]="{
           validation: 'maxLength',
           message: 'حداکثر تعداد کاراکتر مجاز 360 عدد است',
-          control: loginForm.controls['email']
+          control: loginForm.controls['username']
         }"
       ></ng-container>
     </div>

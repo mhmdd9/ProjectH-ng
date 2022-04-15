@@ -196,13 +196,12 @@ export class CustomersComponent
 
   confirm(id){
     this.customerService.confirmExpert({
-      confirmed:'confirmed',
+      confirmed:true,
       expertId:id,
       operatorId:null,
       reason:"کارشناس تایید شد"
     }).subscribe(res=>{
       console.log(res);
-      
     });
   }
 

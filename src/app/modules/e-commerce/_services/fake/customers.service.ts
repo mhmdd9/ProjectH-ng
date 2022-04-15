@@ -41,7 +41,7 @@ export class CustomersService extends TableService<Customer> implements OnDestro
   }
 
   confirmExpert(confirmationData:{
-      confirmed:string,
+      confirmed:boolean,
       expertId: number,
       operatorId: number,
       reason: string

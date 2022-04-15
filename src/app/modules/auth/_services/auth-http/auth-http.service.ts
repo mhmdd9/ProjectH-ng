@@ -5,7 +5,7 @@ import { UserModel } from '../../_models/user.model';
 import { environment } from '../../../../../environments/environment';
 import { AuthModel } from '../../_models/auth.model';
 
-const API_USERS_URL = `${environment.apiUrl}/users`;
+const API_USERS_URL = `${environment.baseUrl}/login`;
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,9 @@ export class AuthHTTPService {
 
   // public methods
   login(email: string, password: string): Observable<any> {
-    return this.http.post<AuthModel>(API_USERS_URL,   { email, password });
+    console.log('login',email,password);
+    
+    return this.http.get<AuthModel>(API_USERS_URL + `?username=${email}&password=${password}`);
   }
 
   // CREATE =>  POST: add a new user to the server
