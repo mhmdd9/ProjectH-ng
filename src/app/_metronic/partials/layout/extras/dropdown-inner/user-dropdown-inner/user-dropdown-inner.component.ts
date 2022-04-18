@@ -11,7 +11,7 @@ import { AuthService } from '../../../../../../modules/auth/_services/auth.servi
 export class UserDropdownInnerComponent implements OnInit {
   extrasUserDropdownStyle: 'light' | 'dark' = 'light';
   user$: Observable<UserModel>;
-
+  firstname="ادمین";
   constructor(private layout: LayoutService, private auth: AuthService) {}
 
   ngOnInit(): void {

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LayoutService } from '../../../../../core';
 import { Observable } from 'rxjs';
@@ -12,8 +13,8 @@ import { AuthService } from '../../../../../../modules/auth/_services/auth.servi
 export class UserOffcanvasComponent implements OnInit {
   extrasUserOffcanvasDirection = 'offcanvas-right';
   user$: Observable<UserModel>;
-
-  constructor(private layout: LayoutService, private auth: AuthService) {}
+  firstname="ادمین"
+  constructor(private layout: LayoutService,private router:Router, private auth: AuthService) {}
 
   ngOnInit(): void {
     this.extrasUserOffcanvasDirection = `offcanvas-${this.layout.getProp(
@@ -24,6 +25,6 @@ export class UserOffcanvasComponent implements OnInit {
 
   logout() {
     this.auth.logout();
-    document.location.reload();
+    this.router.navigate(['/']);
   }
 }

@@ -45,6 +45,11 @@ export class AuthService {
     return this.authHttpService.login(email, password).pipe(
       map((auth: any) => {
         const result = this.setAuthFromLocalStorage(auth);
+        let x = new UserModel();
+        x.id=1;
+        x.fullname='ادمین';
+        this.currentUserSubject.next(x);
+        this.isLoadingSubject.next(true)
         return result;
       }),
       catchError((err) => {
@@ -56,6 +61,8 @@ export class AuthService {
   }
 
   logout() {
+    this.isLoadingSubject.next(false);
+    this.currentUserSubject.next(null);
     localStorage.removeItem(this.authLocalStorageToken);
     this.router.navigate(['/auth/login'], {
       queryParams: {},

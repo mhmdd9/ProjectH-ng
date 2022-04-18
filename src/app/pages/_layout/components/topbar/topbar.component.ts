@@ -19,6 +19,7 @@ import { KTUtil } from '../../../../../assets/js/components/util';
 })
 export class TopbarComponent implements OnInit, AfterViewInit {
   user$: Observable<UserModel>;
+  fullname="ادمین"
   // tobbar extras
   extraSearchDisplay: boolean;
   extrasSearchLayout: 'offcanvas' | 'dropdown';
