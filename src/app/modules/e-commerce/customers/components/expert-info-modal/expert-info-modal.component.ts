@@ -151,6 +151,7 @@ export class ExpertInfoModalComponent implements OnInit, OnDestroy {
       licenseNo: [{ value: this.customer.specInfo.licenseNo, disabled: true }],
       licenseType: [{ value: this.customer.specInfo.licenseType, disabled: true }],
       grade: [{ value: this.customer.specInfo.grade, disabled: true }],
+      level: [{ value: this.customer.specInfo.level, disabled: true }],
       acceptingCasesType: [{ value: this.customer.specInfo.acceptingCasesType, disabled: true }],
       acceptingProvinces: [{ value:this.getAcceptingProvinces(this.customer.specInfo.acceptingProvinces), disabled: true }],
       acceptingWorkScopes: [{ value: this.getAcceptingWorkScopes(this.customer.specInfo.acceptingWorkScopes), disabled: true }],
